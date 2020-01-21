@@ -1,4 +1,4 @@
-# Kirby Better Link
+# Kirby Better Link - A plugin to handle internal links
 
 What the heck is *Kirby Better Link* about? Glad you asked! *Kirby Better Link* is a perfect helper if you…
 
