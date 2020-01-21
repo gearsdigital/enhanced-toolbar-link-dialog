@@ -1,0 +1,18 @@
+{
+    "name": "gearsdigital/kirby-better-link",
+    "description": "Kirby Better Link is a Kirby 3 plugin which makes it easier to add internal or external references to your content. It extends the default link dialog of Kirby textarea fields.",
+    "type": "kirby-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Steffen Giers",
+            "email": "steffen.giers@gmail.com"
+        }
+    ],
+    "require": {
+        "getkirby/composer-installer": "^1.1"
+    },
+    "config": {
+        "optimize-autoloader": true
+    }
+}
