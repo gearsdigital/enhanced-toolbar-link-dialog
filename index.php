@@ -25,10 +25,12 @@ Kirby::plugin('gearsdigital/enhanced-toolbar-link-dialog', [
         'en' => [
             'gearsdigital.enhanced-toolbar-link-dialog.internal' => 'Internal Link',
             'gearsdigital.enhanced-toolbar-link-dialog.external' => 'External Link',
+            'gearsdigital.enhanced-toolbar-link-dialog.empty' => 'No pages found',
         ],
         'de' => [
             'gearsdigital.enhanced-toolbar-link-dialog.internal' => 'Interner Link',
             'gearsdigital.enhanced-toolbar-link-dialog.external' => 'Externer Link',
+            'gearsdigital.enhanced-toolbar-link-dialog.empty' => 'Keine Seiten gefunden.',
         ],
     ],
 ]);
