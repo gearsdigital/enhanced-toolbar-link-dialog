@@ -42,7 +42,7 @@
         icon="search"
       />
 
-      <k-list>
+      <k-list v-if="pages.length > 0">
         <k-list-item
           v-for="page in pages"
           :key="page.id"
@@ -68,6 +68,9 @@
           </template>
         </k-list-item>
       </k-list>
+      <k-text v-else>
+        {{$t('gearsdigital.enhanced-toolbar-link-dialog.empty')}}
+      </k-text>
 
       <k-pagination
         :details="true"
