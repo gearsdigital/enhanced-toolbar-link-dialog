@@ -1,9 +1,9 @@
-import BetterLinkDialog from "./components/BetterLinkDialog";
+import EnhancedToolbarLinkDialog from "./components/EnhancedToolbarLinkDialog";
 
-panel.plugin('gearsdigital/kirby-better-link', {
+panel.plugin('gearsdigital/enhanced-toolbar-link-dialog', {
   components: {
     'k-toolbar-link-dialog': {
-      extends: BetterLinkDialog
+      extends: EnhancedToolbarLinkDialog
     }
   }
 });

@@ -1,9 +1,9 @@
 <?php
-Kirby::plugin('gearsdigital/kirby-better-link', [
+Kirby::plugin('gearsdigital/enhanced-toolbar-link-dialog', [
     'api'          => [
         'routes' => [
             [
-                'pattern' => 'better-link/pages',
+                'pattern' => 'enhanced-toolbar-link-dialog/pages',
                 'method'  => 'get',
                 'action'  => function () {
                     $page = get('page');
@@ -19,12 +19,12 @@ Kirby::plugin('gearsdigital/kirby-better-link', [
     ],
     'translations' => [
         'en' => [
-            'gearsdigital.kirbybetterlink.internal' => 'Internal Link',
-            'gearsdigital.kirbybetterlink.external' => 'External Link',
+            'gearsdigital.enhanced-toolbar-link-dialog.internal' => 'Internal Link',
+            'gearsdigital.enhanced-toolbar-link-dialog.external' => 'External Link',
         ],
         'de' => [
-            'gearsdigital.kirbybetterlink.internal' => 'Interner Link',
-            'gearsdigital.kirbybetterlink.external' => 'Externer Link',
+            'gearsdigital.enhanced-toolbar-link-dialog.internal' => 'Interner Link',
+            'gearsdigital.enhanced-toolbar-link-dialog.external' => 'Externer Link',
         ],
     ],
 ]);
