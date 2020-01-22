@@ -9,6 +9,10 @@ Kirby::plugin('gearsdigital/enhanced-toolbar-link-dialog', [
                     $page = get('page');
                     $query = get('search', '*');
 
+                    if (empty($query)) {
+                        $query = '*';
+                    }
+
                     return site()->search($query, 'title')->paginate([
                         'page'  => $page,
                         'limit' => 10,
