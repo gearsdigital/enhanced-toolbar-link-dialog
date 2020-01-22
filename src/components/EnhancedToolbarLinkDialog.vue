@@ -91,11 +91,11 @@
         tabs: [
           {
             name: 'external',
-            label: this.$t("gearsdigital.kirbybetterlink.external")
+            label: this.$t("gearsdigital.enhanced-toolbar-link-dialog.external")
           },
           {
             name: 'internal',
-            label: this.$t("gearsdigital.kirbybetterlink.internal")
+            label: this.$t("gearsdigital.enhanced-toolbar-link-dialog.internal")
           },
         ],
         search: null,
@@ -193,7 +193,7 @@
           page: this.pagination.page,
           search: this.search
         };
-        this.$api.get('better-link/pages', params).then(response => {
+        this.$api.get('enhanced-toolbar-link-dialog/pages', params).then(response => {
           this.pages = response.data;
           this.pagination = response.pagination;
         });
