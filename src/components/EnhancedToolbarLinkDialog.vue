@@ -42,7 +42,7 @@
         icon="search"
       />
 
-      <k-list v-if="pages.length > 0">
+      <k-list v-if="hasPages">
         <k-list-item
           v-for="page in pages"
           :key="page.id"
@@ -85,10 +85,6 @@
 
 <script>
   export default {
-    props: {
-      pages: Array,
-      text: String
-    },
     data() {
       return {
         tabs: [
@@ -104,6 +100,7 @@
         search: null,
         currentPage: {},
         currentTab: {},
+        pages:[],
         value: {
           url: null,
           text: null
@@ -133,6 +130,9 @@
       }, 200)
     },
     computed: {
+      hasPages(){
+        return this.pages.length
+      },
       kirbytext() {
         return this.$store.state.system.info.kirbytext;
       }
