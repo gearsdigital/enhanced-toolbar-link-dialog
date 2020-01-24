@@ -42,7 +42,7 @@
         icon="search"
       />
 
-      <k-list v-if="pages.length > 0">
+      <k-list v-if="hasPages">
         <k-list-item
           v-for="page in pages"
           :key="page.id"
@@ -85,10 +85,6 @@
 
 <script>
   export default {
-    props: {
-      pages: Array,
-      text: String
-    },
     data() {
       return {
         tabs: [
@@ -104,6 +100,7 @@
         search: null,
         currentPage: {},
         currentTab: {},
+        pages: [],
         value: {
           url: null,
           text: null
@@ -133,6 +130,9 @@
       }, 200)
     },
     computed: {
+      hasPages() {
+        return this.pages.length
+      },
       kirbytext() {
         return this.$store.state.system.info.kirbytext;
       }
@@ -157,7 +157,7 @@
       },
       selectPage(model) {
         this.value = {
-          url: model.url,
+          url: model.slug,
           text: this.value.text || model.title
         };
         if (this.isCurrentPage(model)) {
@@ -197,9 +197,9 @@
           search: this.search
         };
         this.$api.get('enhanced-toolbar-link-dialog/pages', params).then(response => {
-          this.pages = response.data;
-          this.pagination = response.pagination;
-        });
+            this.pages = response.data;
+            this.pagination = response.pagination;
+          });
       },
       submit() {
         this.$emit("submit", this.kirbytext ? this.createKirbytext() : this.createMarkdown());
