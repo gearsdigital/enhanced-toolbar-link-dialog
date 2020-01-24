@@ -100,7 +100,7 @@
         search: null,
         currentPage: {},
         currentTab: {},
-        pages:[],
+        pages: [],
         value: {
           url: null,
           text: null
@@ -130,7 +130,7 @@
       }, 200)
     },
     computed: {
-      hasPages(){
+      hasPages() {
         return this.pages.length
       },
       kirbytext() {
@@ -157,7 +157,7 @@
       },
       selectPage(model) {
         this.value = {
-          url: model.url,
+          url: model.slug,
           text: this.value.text || model.title
         };
         if (this.isCurrentPage(model)) {
@@ -197,9 +197,9 @@
           search: this.search
         };
         this.$api.get('enhanced-toolbar-link-dialog/pages', params).then(response => {
-          this.pages = response.data;
-          this.pagination = response.pagination;
-        });
+            this.pages = response.data;
+            this.pagination = response.pagination;
+          });
       },
       submit() {
         this.$emit("submit", this.kirbytext ? this.createKirbytext() : this.createMarkdown());
