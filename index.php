@@ -16,7 +16,7 @@ Kirby::plugin('gearsdigital/enhanced-toolbar-link-dialog', [
                         return $page->title()->value();
                     },
                     'slug'  => function ($page) {
-                        return URL::makeAbsolute($page->slug());
+                        return URL::makeAbsolute($page->parent().DS.$page->slug());
                     },
                 ],
             ],
