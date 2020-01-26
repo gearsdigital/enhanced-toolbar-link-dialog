@@ -7,6 +7,7 @@ Kirby::plugin('gearsdigital/enhanced-toolbar-link-dialog', [
         'models'      => [
             // a camelCased model name results in Kirby\Exception\NotFoundException
             'simplepagemodel' => [
+                'type'=> null,
                 'fields' => [
                     'id'    => function ($page) {
                         return $page->id();
