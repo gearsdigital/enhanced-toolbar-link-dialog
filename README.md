@@ -43,7 +43,7 @@ git submodule add https://github.com/gearsdigital/enhanced-toolbar-link-dialog.g
 
 ### Download
 
-[Download](https://github.com/gearsdigital/kirby-reporter/releases/latest) and copy this repository to `/site/plugins/enhanced-toolbar-link-dialog`.
+[Download](https://github.com/gearsdigital/enhanced-toolbar-link-dialog/releases/latest) and copy this repository to `/site/plugins/enhanced-toolbar-link-dialog`.
 
 ## Configuration
 
