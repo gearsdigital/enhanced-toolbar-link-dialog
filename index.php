@@ -24,7 +24,6 @@ Kirby::plugin('gearsdigital/enhanced-toolbar-link-dialog', [
         'collections' => [
             'simplepagecollection' => [
                 'model' => 'simplepagemodel',
-                'type'  => 'Kirby\Toolkit\Collection',
             ],
         ],
         'routes'      => [
