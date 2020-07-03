@@ -54,11 +54,15 @@ Kirby::plugin('gearsdigital/enhanced-toolbar-link-dialog', [
             'gearsdigital.enhanced-toolbar-link-dialog.internal' => 'Internal Link',
             'gearsdigital.enhanced-toolbar-link-dialog.external' => 'External Link',
             'gearsdigital.enhanced-toolbar-link-dialog.empty'    => 'No pages found',
+            'gearsdigital.enhanced-toolbar-link-dialog.target.title' => 'Link Target',
+            'gearsdigital.enhanced-toolbar-link-dialog.target.help' => 'Specify where to open the linked document.',
         ],
         'de' => [
             'gearsdigital.enhanced-toolbar-link-dialog.internal' => 'Interner Link',
             'gearsdigital.enhanced-toolbar-link-dialog.external' => 'Externer Link',
             'gearsdigital.enhanced-toolbar-link-dialog.empty'    => 'Keine Seiten gefunden.',
+            'gearsdigital.enhanced-toolbar-link-dialog.target.title' => 'Link Ziel',
+            'gearsdigital.enhanced-toolbar-link-dialog.target.help' => 'Gibt an, wo das verknüpfte Dokument geöffnet werden soll.',
         ],
     ],
 ]);

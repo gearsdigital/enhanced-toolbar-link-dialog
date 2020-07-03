@@ -24,8 +24,9 @@ Where it gets interesting is the "*Internal Link*" tab. Within this tab you can:
 
 - search for specific pages (by page title)
 - paginate through all existing pages (published/unpublished)
+- specify where to open the linked document in [KirbyText](https://getkirby.com/docs/reference/text/kirbytags)
 
-As soon as you have found your page you can select and insert it into your document.
+As soon as you have found your page, you can select and insert it into your document.
 
 ## Installation
 
