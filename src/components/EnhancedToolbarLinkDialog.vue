@@ -42,32 +42,43 @@
         icon="search"
       />
 
-      <k-list v-if="hasPages">
-        <k-list-item
-          v-for="page in pages"
-          :key="page.id"
-          :text="page.title"
-          @click="selectPage(page)"
-        >
-          <template slot="options">
-            <k-button
-              v-if="isCurrentPage(page)"
-              slot="options"
-              autofocus="true"
-              icon="check"
-              theme="positive"
-              :tooltip="$t('remove')"
-            />
-            <k-button
-              v-else
-              slot="options"
-              autofocus="true"
-              icon="circle-outline"
-              :tooltip="$t('select')"
-            />
-          </template>
-        </k-list-item>
-      </k-list>
+      <div v-if="hasPages">
+        <k-list>
+          <k-list-item
+            v-for="page in pages"
+            :key="page.id"
+            :text="page.title"
+            @click="selectPage(page)"
+          >
+            <template slot="options">
+              <k-button
+                v-if="isCurrentPage(page)"
+                slot="options"
+                autofocus="true"
+                icon="check"
+                theme="positive"
+                :tooltip="$t('remove')"
+              />
+              <k-button
+                v-else
+                slot="options"
+                autofocus="true"
+                icon="circle-outline"
+                :tooltip="$t('select')"
+              />
+            </template>
+          </k-list-item>
+        </k-list>
+        <k-line-field />
+        <k-select-field
+          v-model="selectedLinkTarget"
+          :options="linkTargets"
+          type="select"
+          name="target"
+          :label="$t('gearsdigital.enhanced-toolbar-link-dialog.target.title')"
+          :help="$t('gearsdigital.enhanced-toolbar-link-dialog.target.help')"
+        />
+      </div>
       <k-text v-else>
         {{$t('gearsdigital.enhanced-toolbar-link-dialog.empty')}}
       </k-text>
@@ -120,7 +131,14 @@
             label: this.$t("link.text"),
             type: 'text'
           }
-        }
+        },
+        selectedLinkTarget: null,
+        linkTargets: [
+          {value: '_blank', text: '_blank'},
+          {value: '_self', text: '_blank'},
+          {value: '_parent', text: '_parent'},
+          {value: '_top', text: '_top'},
+        ]
       };
     },
     watch: {
@@ -151,6 +169,7 @@
         this.value.text = null;
         this.search = null;
         this.pagination.page = 1;
+        this.selectedLinkTarget = null;
       },
       selectTab(tab) {
         this.currentTab = tab;
@@ -178,11 +197,17 @@
         this.fetch();
       },
       createKirbytext() {
-        if (this.value.text.length > 0) {
-          return `(link: ${this.value.url} text: ${this.value.text})`;
-        } else {
-          return `(link: ${this.value.url})`;
+        if (!this.value.url && this.value.text) {
+          return this.value.text;
         }
+
+        const target = `${this.selectedLinkTarget ? "target: " + this.selectedLinkTarget : ""}`;
+        const link = `link: ${this.value.url}`;
+        const text = `text: ${this.value.text}`;
+
+        return this.value.text.length > 0
+          ? `(${link} ${text} ${target})`
+          : `(${link} ${target})`;
       },
       createMarkdown() {
         if (this.value.text.length > 0) {
