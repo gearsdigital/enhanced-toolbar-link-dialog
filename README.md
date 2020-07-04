@@ -48,10 +48,24 @@ git submodule add https://github.com/gearsdigital/enhanced-toolbar-link-dialog.g
 
 ## Configuration
 
-No configuration necessary 🥳
+The list item text is created using the [Kirby Query Language](https://getkirby.com/docs/guide/blueprints/query-language) and therefore customizable. It is totally up to you, how the page will appear to your users. You have access to `$page`, `site` and `kirby`.
+
+The default is `{{ page.title }}`.
+
+In order to change the default add `gearsdigital.enhanced-toolbar-link-dialog.link.title` to your `site/config.php`.
+
+### Example
+```php
+// site/config.php
+return [
+    'gearsdigital.enhanced-toolbar-link-dialog.link.title' => '### {{ page.title }} ###',
+];
+```
+
+This will wrap the text in `###` => (`### In the jungle of Sumatra ###`)
 
 ## Available translations
-
+``
 - German
 - English
 

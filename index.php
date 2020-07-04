@@ -1,6 +1,7 @@
 <?php
 
 use Kirby\Http\Url;
+use Kirby\Toolkit\Str;
 
 Kirby::plugin('gearsdigital/enhanced-toolbar-link-dialog', [
     'api'          => [
@@ -13,7 +14,12 @@ Kirby::plugin('gearsdigital/enhanced-toolbar-link-dialog', [
                         return $page->id();
                     },
                     'title' => function ($page) {
-                        return $page->title()->value();
+                        $query = option('gearsdigital.enhanced-toolbar-link-dialog.link.title', '{{ page.title }}');
+                        return Str::template($query, [
+                            'page' => $page,
+                            'site' => site(),
+                            'kirby' => kirby(),
+                        ]);
                     },
                     'slug'  => function ($page) {
                         return URL::makeAbsolute($page->parent().DS.$page->slug());
@@ -54,7 +60,7 @@ Kirby::plugin('gearsdigital/enhanced-toolbar-link-dialog', [
             'gearsdigital.enhanced-toolbar-link-dialog.external' => 'External Link',
             'gearsdigital.enhanced-toolbar-link-dialog.empty'    => 'No pages found',
             'gearsdigital.enhanced-toolbar-link-dialog.target.title' => 'Link Target',
-            'gearsdigital.enhanced-toolbar-link-dialog.target.help' => 'Specify where to open the linked document.',
+            'gearsdigital.enhanced-toolbar-link-dialog.target.help' => 'Specify where to open the linked document.'
         ],
         'de' => [
             'gearsdigital.enhanced-toolbar-link-dialog.internal' => 'Interner Link',
