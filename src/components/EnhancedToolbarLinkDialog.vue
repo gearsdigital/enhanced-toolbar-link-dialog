@@ -13,7 +13,6 @@
       <nav>
         <k-button
           v-for="tab in tabs"
-          :link="'#' + tab.name"
           :current="currentTab && currentTab.name === tab.name"
           class="k-tab-button"
           @click="selectTab(tab)"

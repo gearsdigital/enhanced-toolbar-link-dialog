@@ -65,7 +65,7 @@ return [
 This will wrap the text in `###` => (`### In the jungle of Sumatra ###`)
 
 ## Available translations
-``
+
 - German
 - English
 
