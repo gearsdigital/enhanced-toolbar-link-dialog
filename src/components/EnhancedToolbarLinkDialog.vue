@@ -133,10 +133,10 @@ export default {
       },
       selectedLinkTarget: null,
       linkTargets: [
-        { value: "_blank", text: "_blank" },
-        { value: "_self", text: "_blank" },
-        { value: "_parent", text: "_parent" },
-        { value: "_top", text: "_top" },
+        { value: "_blank", text: "Blank" },
+        { value: "_self", text: "Self" },
+        { value: "_parent", text: "Parent" },
+        { value: "_top", text: "Top" },
       ],
     };
   },
