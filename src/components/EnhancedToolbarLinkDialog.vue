@@ -141,10 +141,12 @@ export default {
     };
   },
   watch: {
-    search: debounce(() => {
-      this.pagination.page = 0;
-      this.fetch();
-    }, 200),
+    search: function (val, oldVal) {
+      if (val !== oldVal) {
+        this.pagination.page = 0;
+        this.fetch();
+      }
+    },
   },
   computed: {
     hasPages() {
@@ -238,18 +240,6 @@ export default {
     },
   },
 };
-
-function debounce(fn, delay = 200) {
-  let timer = null;
-  return function () {
-    let context = this;
-    let args = arguments;
-    clearTimeout(timer);
-    timer = setTimeout(function () {
-      fn.apply(context, args);
-    }, delay);
-  };
-}
 </script>
 
 <style>
