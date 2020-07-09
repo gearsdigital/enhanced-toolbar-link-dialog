@@ -70,5 +70,12 @@ Kirby::plugin('gearsdigital/enhanced-toolbar-link-dialog', [
             'gearsdigital.enhanced-toolbar-link-dialog.target.title' => 'Link Ziel',
             'gearsdigital.enhanced-toolbar-link-dialog.target.help' => 'Gibt an, wo das verknüpfte Dokument geöffnet werden soll.',
         ],
+        'cs' => [
+            'gearsdigital.enhanced-toolbar-link-dialog.internal' => 'Interní odkaz',
+            'gearsdigital.enhanced-toolbar-link-dialog.external' => 'Externí odkaz',
+            'gearsdigital.enhanced-toolbar-link-dialog.empty'    => 'Nebyly nalezeny žádné stránky.',
+            'gearsdigital.enhanced-toolbar-link-dialog.target.title' => 'Cíl odkazu',
+            'gearsdigital.enhanced-toolbar-link-dialog.target.help' => 'Můžete upřesnit, kam se má odkaz otevřít.',
+        ],
     ],
 ]);
