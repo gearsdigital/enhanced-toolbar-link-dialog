@@ -67,6 +67,14 @@
             </template>
           </k-list-item>
         </k-list>
+        <k-pagination
+          :details="true"
+          :dropdown="false"
+          v-bind="pagination"
+          align="center"
+          class="k-dialog-pagination"
+          @paginate="paginate"
+        />
         <k-line-field />
         <k-select-field
           v-model="selectedLinkTarget"
@@ -80,15 +88,6 @@
       <k-text v-else>
         {{ $t("gearsdigital.enhanced-toolbar-link-dialog.empty") }}
       </k-text>
-
-      <k-pagination
-        :details="true"
-        :dropdown="false"
-        v-bind="pagination"
-        align="center"
-        class="k-dialog-pagination"
-        @paginate="paginate"
-      />
     </div>
   </k-dialog>
 </template>
@@ -240,8 +239,14 @@ export default {
 };
 </script>
 
-<style>
+<style scoped lang="scss">
   .k-tab {
     padding: 1rem 0;
+  }
+
+  // prevent z-index issue with k-line-field
+  .k-pagination {
+    z-index: 1;
+    position: relative;
   }
 </style>
