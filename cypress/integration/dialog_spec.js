@@ -1,12 +1,12 @@
 describe("Enhanced Link Toolbar Dialog", () => {
-
   it("should filter pages correctly while searching", () => {
     cy.login();
     cy.openFirstNote();
     cy.openDialog();
 
-    cy.get(".k-text-input").type("ju")
-      .should("have.value", "ju");
+    cy.get(".k-text-input").type("jun",{delay: 100}).should("have.value", "jun");
+
+    cy.wait(1000);
 
     cy.get(".k-pages-dialog .k-list")
       .find(".k-list-item")
@@ -28,65 +28,112 @@ describe("Enhanced Link Toolbar Dialog", () => {
       .should("have.length", 1);
   });
 
-  it("should insert kirby text", () => {
-    cy.login();
-    cy.openFirstNote();
-    cy.openDialog()
+  describe("KirbyText", () => {
+    describe("with selected link", () => {
 
-    cy.get(".k-pages-dialog .k-list")
-      .find(".k-list-item:first-child").click();
+      it('should insert "text:" from page name', () => {
+        cy.login();
+        cy.openFirstNote();
 
-    cy.get(".k-button")
-      .contains("Ok")
-      .click();
+        cy.get(".k-textarea-field textarea").clear();
 
-    cy.get(".k-textarea-field textarea")
-      .should(
-        "include.value",
-        "(link: /notes/in-the-jungle-of-sumatra text: In the jungle of Sumatra )"
-      );
-  });
+        cy.openDialog();
 
-  it("should insert kirby text with selected text", () => {
-    cy.login();
-    cy.openFirstNote();
+        cy.get(".k-pages-dialog .k-list")
+          .find(".k-list-item:first-child")
+          .click();
 
-    cy.get(".k-textarea-field textarea")
-      .clear()
-      .type("Lorem ipsum dolor")
-      .type('{selectall}');
+        cy.get(".k-button").contains("Ok").click();
 
-    cy.openDialog()
+        cy.get(".k-textarea-field textarea").should(
+          "include.value",
+          "(link: /notes/in-the-jungle-of-sumatra text: In the jungle of Sumatra)"
+        );
+      });
 
-    cy.get(".k-pages-dialog .k-list").find(".k-list-item:first-child").click();
+      it('should insert "text:" from selection', () => {
+        cy.login();
+        cy.openFirstNote();
 
-    cy.get(".k-button").contains("Ok").click();
+        cy.get(".k-textarea-field textarea")
+          .clear()
+          .type("Lorem ipsum dolor")
+          .type("{selectall}");
 
-    cy.get(".k-textarea-field textarea").should(
-      "include.value",
-      "(link: /notes/in-the-jungle-of-sumatra text: Lorem ipsum dolor )"
-    );
-  });
+        cy.openDialog();
 
-  it("should insert kirby text with selected text and target", () => {
-    cy.login();
-    cy.openFirstNote();
+        cy.get(".k-pages-dialog .k-list")
+          .find(".k-list-item:first-child")
+          .click();
 
-    cy.get(".k-textarea-field textarea")
-      .clear()
-      .type("Lorem ipsum dolor")
-      .type('{selectall}');
+        cy.get(".k-button").contains("Ok").click();
 
-    cy.openDialog()
+        cy.get(".k-textarea-field textarea").should(
+          "include.value",
+          "(link: /notes/in-the-jungle-of-sumatra text: Lorem ipsum dolor)"
+        );
+      });
 
-    cy.get(".k-pages-dialog .k-list").find(".k-list-item:first-child").click();
-    cy.get(".k-pages-dialog .k-select-input-native").select('Blank')
+      it('should insert "text:" from selection and "target:" from dropdown', () => {
+        cy.login();
+        cy.openFirstNote();
 
-    cy.get(".k-button").contains("Ok").click();
+        cy.get(".k-textarea-field textarea")
+          .clear()
+          .type("Lorem ipsum dolor")
+          .type("{selectall}");
 
-    cy.get(".k-textarea-field textarea").should(
-      "include.value",
-      "(link: /notes/in-the-jungle-of-sumatra text: Lorem ipsum dolor target: _blank)"
-    );
+        cy.openDialog();
+
+        cy.get(".k-pages-dialog .k-list")
+          .find(".k-list-item:first-child")
+          .click();
+        cy.get(".k-pages-dialog .k-select-input-native").select("Blank");
+
+        cy.get(".k-button").contains("Ok").click();
+
+        cy.get(".k-textarea-field textarea").should(
+          "include.value",
+          "(link: /notes/in-the-jungle-of-sumatra text: Lorem ipsum dolor target: _blank)"
+        );
+      });
+    });
+
+    describe("without selected link", () => {
+      it("should insert nothing", () => {
+        cy.login();
+        cy.openFirstNote();
+
+        cy.get(".k-textarea-field textarea").clear().type("Lorem ipsum dolor");
+
+        cy.openDialog();
+
+        cy.get(".k-button").contains("Ok").click();
+
+        cy.get(".k-textarea-field textarea").should(
+          "include.value",
+          "Lorem ipsum dolor"
+        );
+      });
+
+      it("should insert nothing even with selection", () => {
+        cy.login();
+        cy.openFirstNote();
+
+        cy.get(".k-textarea-field textarea")
+          .clear()
+          .type("Lorem ipsum dolor")
+          .type("{selectall}");
+
+        cy.openDialog();
+
+        cy.get(".k-button").contains("Ok").click();
+
+        cy.get(".k-textarea-field textarea").should(
+          "include.value",
+          "Lorem ipsum dolor"
+        );
+      });
+    });
   });
 });

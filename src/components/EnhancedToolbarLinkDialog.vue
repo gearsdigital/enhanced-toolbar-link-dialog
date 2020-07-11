@@ -198,26 +198,20 @@ export default {
       this.fetch();
     },
     createKirbytext() {
-      if (!this.value.url && this.value.text) {
-        return this.value.text;
+      const parts = [];
+      parts.push(`link: ${this.value.url}`);
+      parts.push(`text: ${this.value.text}`);
+
+      if (this.selectedLinkTarget) {
+        parts.push(`target: ${this.selectedLinkTarget}`);
       }
 
-      const target = `${
-        this.selectedLinkTarget ? "target: " + this.selectedLinkTarget : ""
-      }`;
-      const link = `link: ${this.value.url}`;
-      const text = `text: ${this.value.text}`;
-
-      return this.value.text.length > 0
-        ? `(${link} ${text} ${target})`
-        : `(${link} ${target})`;
+      return `(${parts.join(" ")})`;
     },
     createMarkdown() {
-      if (this.value.text.length > 0) {
-        return `[${this.value.text}](${this.value.url})`;
-      } else {
-        return `<${this.value.url}>`;
-      }
+      return this.value.text.length > 0
+        ? `[${this.value.text}](${this.value.url})`
+        : `<${this.value.url}>`;
     },
     fetch() {
       const params = {
@@ -232,6 +226,10 @@ export default {
         });
     },
     submit() {
+      if (this.value.url === null) {
+        this.$refs.dialog.close();
+        return;
+      }
       this.$emit(
         "submit",
         this.kirbytext ? this.createKirbytext() : this.createMarkdown()
@@ -243,7 +241,7 @@ export default {
 </script>
 
 <style>
-.k-tab {
-  padding: 1rem 0;
-}
+  .k-tab {
+    padding: 1rem 0;
+  }
 </style>
