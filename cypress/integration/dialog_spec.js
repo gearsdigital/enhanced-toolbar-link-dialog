@@ -3,6 +3,7 @@ describe("Enhanced Link Toolbar Dialog", () => {
     cy.login();
     cy.openFirstNote();
     cy.openDialog();
+    cy.openInternalTab();
 
     cy.get(".k-text-input").type("jun",{delay: 100}).should("have.value", "jun");
 
@@ -17,6 +18,7 @@ describe("Enhanced Link Toolbar Dialog", () => {
     cy.login();
     cy.openFirstNote();
     cy.openDialog();
+    cy.openInternalTab();
 
     cy.get(".k-pages-dialog .k-dialog-pagination")
       .find('button[title="Next"]')
@@ -26,6 +28,27 @@ describe("Enhanced Link Toolbar Dialog", () => {
     cy.get(".k-pages-dialog .k-list")
       .find(".k-list-item")
       .should("have.length", 1);
+  });
+
+  describe("Options", () => {
+    beforeEach(() => {
+      cy.task('copyKirbyConfig');
+      cy.login();
+      cy.openFirstNote();
+      cy.openDialog();
+    });
+
+    afterEach(() => {
+      cy.task('restoreKirbyConfig')
+    });
+
+    it('link.title and tab.order', () => {
+      cy.get(".k-pages-dialog .k-list-item:first-child")
+        .should(
+          "include.text",
+          "###"
+        );
+    });
   });
 
   describe("KirbyText", () => {
@@ -38,6 +61,7 @@ describe("Enhanced Link Toolbar Dialog", () => {
         cy.get(".k-textarea-field textarea").clear();
 
         cy.openDialog();
+        cy.openInternalTab();
 
         cy.get(".k-pages-dialog .k-list")
           .find(".k-list-item:first-child")
@@ -61,6 +85,7 @@ describe("Enhanced Link Toolbar Dialog", () => {
           .type("{selectall}");
 
         cy.openDialog();
+        cy.openInternalTab();
 
         cy.get(".k-pages-dialog .k-list")
           .find(".k-list-item:first-child")
@@ -84,6 +109,7 @@ describe("Enhanced Link Toolbar Dialog", () => {
           .type("{selectall}");
 
         cy.openDialog();
+        cy.openInternalTab();
 
         cy.get(".k-pages-dialog .k-list")
           .find(".k-list-item:first-child")
@@ -107,6 +133,7 @@ describe("Enhanced Link Toolbar Dialog", () => {
         cy.get(".k-textarea-field textarea").clear().type("Lorem ipsum dolor");
 
         cy.openDialog();
+        cy.openInternalTab();
 
         cy.get(".k-button").contains("Ok").click();
 
@@ -126,6 +153,7 @@ describe("Enhanced Link Toolbar Dialog", () => {
           .type("{selectall}");
 
         cy.openDialog();
+        cy.openInternalTab();
 
         cy.get(".k-button").contains("Ok").click();
 
