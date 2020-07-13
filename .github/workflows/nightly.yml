@@ -1,0 +1,49 @@
+name: E2E (Nightly)
+
+on:
+  schedule:
+    - cron:  '0 2 * * *' # run at 2 AM UTC
+
+jobs:
+  nightly:
+    runs-on: ubuntu-latest
+
+    name: Dialog
+    steps:
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.4'
+          tools: composer
+
+      - name: Set up latest Kirby (dev-master)
+        run: |
+          composer create-project getkirby/starterkit
+          cd ./starterkit
+          composer require getkirby/cms:dev-master
+
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          path: ./starterkit/site/plugins/enhanced-toolbar-link-dialog
+
+      - name: Build
+        run: |
+          cd ./starterkit/site/plugins/enhanced-toolbar-link-dialog
+          npm ci
+          npm run build
+
+      - name: Start Webserver
+        run: |
+          cd ./starterkit
+          nohup php -S localhost:8000 kirby/router.php > /dev/null 2>&1 &
+
+      - name: Run Cypress
+        uses: cypress-io/github-action@v2
+        with:
+          working-directory: ./starterkit/site/plugins/enhanced-toolbar-link-dialog
+          record: true
+          browser: chrome
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
