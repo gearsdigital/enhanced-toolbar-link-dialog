@@ -43,6 +43,8 @@ describe("Enhanced Link Toolbar Dialog", () => {
     });
 
     it('link.title and tab.order', () => {
+      cy.wait(2000);
+
       cy.get(".k-pages-dialog .k-list-item:first-child")
         .should(
           "include.text",
