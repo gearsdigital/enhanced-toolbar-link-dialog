@@ -50,26 +50,25 @@ git submodule add https://github.com/gearsdigital/enhanced-toolbar-link-dialog.g
 
 ## Configuration
 
-The list item text is created using the [Kirby Query Language](https://getkirby.com/docs/guide/blueprints/query-language) and therefore customizable. It is totally up to you, how the page will appear to your users. You have access to `$page`, `site` and `kirby`.
+| Option | Default | Description |
+|:---|:---|:---|
+| `gearsdigital.enhanced-toolbar-link-dialog.link.title ` | `"{{page.title}}"` String | The list item text is created using the [Kirby Query Language](https://getkirby.com/docs/guide/blueprints/query-language) and therefore customizable. It is totally up to you, how the page will appear to your users.<br><br>Within the query you have access to `page`, `site` and `kirby`. |
+| `gearsdigital.enhanced-toolbar-link-dialog.tab.order ` | `"0"` - String |  You can choose between two values. <br><br>`"0"` _"External Link"_ Tab is initially active.<br>`"1"` _"Internal Link"_ Tab is initially active.|
 
-The default is `{{ page.title }}`.
-
-In order to change the default add `gearsdigital.enhanced-toolbar-link-dialog.link.title` to your `site/config.php`.
-
-### Example
+#### Examples
 ```php
-// site/config.php
+// site/config/config.php
 return [
     'gearsdigital.enhanced-toolbar-link-dialog.link.title' => '### {{ page.title }} ###',
+    'gearsdigital.enhanced-toolbar-link-dialog.tab.order' => '1', // Internal Link Tab is active
 ];
 ```
-
-This will wrap the text in `###` => (`### In the jungle of Sumatra ###`)
 
 ## Available translations
 
 - German
 - English
+- Czech
 
 > Pull requests with additonal translations are very much appreciated!
 

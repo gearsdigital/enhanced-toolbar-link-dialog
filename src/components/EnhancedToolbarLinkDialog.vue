@@ -157,8 +157,9 @@ export default {
   },
   methods: {
     open(input, selection) {
+      const openTab = parseInt(this.$t('gearsdigital.enhanced-toolbar-link-dialog.tab.order'), 10) || 0;
       this.value.text = selection;
-      this.currentTab = this.tabs[0];
+      this.currentTab = this.tabs[openTab];
       this.$refs.dialog.open();
     },
     resetForm() {

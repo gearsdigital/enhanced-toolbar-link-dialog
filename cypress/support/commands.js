@@ -39,6 +39,9 @@ Cypress.Commands.add('openFirstNote', function (options = {}) {
 
 Cypress.Commands.add('openDialog', function (options = {}) {
   cy.get('.k-toolbar .k-icon-url').click()
+});
+
+Cypress.Commands.add('openInternalTab', function (options = {}) {
   cy.get(".k-dialog-body nav").contains("Internal Link").click();
 });
 
