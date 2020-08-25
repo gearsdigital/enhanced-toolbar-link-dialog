@@ -25,6 +25,13 @@ $translations = [
         'gearsdigital.enhanced-toolbar-link-dialog.target.title' => 'Cíl odkazu',
         'gearsdigital.enhanced-toolbar-link-dialog.target.help' => 'Můžete upřesnit, kam se má odkaz otevřít.',
     ],
+    'fr' => [
+        'gearsdigital.enhanced-toolbar-link-dialog.internal' => 'Lien interne',
+        'gearsdigital.enhanced-toolbar-link-dialog.external' => 'Lien externe',
+        'gearsdigital.enhanced-toolbar-link-dialog.empty' => 'Aucune page trouvée',
+        'gearsdigital.enhanced-toolbar-link-dialog.target.title' => 'Cible du lien',
+        'gearsdigital.enhanced-toolbar-link-dialog.target.help' => 'Spécifiez où ouvrir le document lié.',
+    ],
 ];
 
 // This quite hacky but enables us to pass options down to VUE.
