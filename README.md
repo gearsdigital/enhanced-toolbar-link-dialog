@@ -69,6 +69,7 @@ return [
 - German
 - English
 - Czech
+- French
 
 > Pull requests with additonal translations are very much appreciated!
 
