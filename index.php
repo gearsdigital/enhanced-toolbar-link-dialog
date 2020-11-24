@@ -10,6 +10,8 @@ $translations = [
         'gearsdigital.enhanced-toolbar-link-dialog.empty' => 'No pages found',
         'gearsdigital.enhanced-toolbar-link-dialog.target.title' => 'Link Target',
         'gearsdigital.enhanced-toolbar-link-dialog.target.help' => 'Specify where to open the linked document.',
+        'gearsdigital.enhanced-toolbar-link-dialog.title.title' => 'Title',
+        'gearsdigital.enhanced-toolbar-link-dialog.anchor.title' => 'Anchor',
     ],
     'de' => [
         'gearsdigital.enhanced-toolbar-link-dialog.internal' => 'Interner Link',

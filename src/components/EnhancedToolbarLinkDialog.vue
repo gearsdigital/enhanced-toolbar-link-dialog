@@ -76,13 +76,9 @@
           @paginate="paginate"
         />
         <k-line-field />
-        <k-select-field
-          v-model="selectedLinkTarget"
-          :options="linkTargets"
-          type="select"
-          name="target"
-          :label="$t('gearsdigital.enhanced-toolbar-link-dialog.target.title')"
-          :help="$t('gearsdigital.enhanced-toolbar-link-dialog.target.help')"
+        <k-form
+          :fields="attributeFields"
+          v-model="attributes"
         />
       </div>
       <k-text v-else>
@@ -130,13 +126,32 @@ export default {
           type: "text",
         },
       },
-      selectedLinkTarget: null,
-      linkTargets: [
-        { value: "_blank", text: "Blank" },
-        { value: "_self", text: "Self" },
-        { value: "_parent", text: "Parent" },
-        { value: "_top", text: "Top" },
-      ],
+      attributeFields: {
+        selectedLinkTarget: {
+          label: this.$t('gearsdigital.enhanced-toolbar-link-dialog.target.title'),
+          type: "select",
+          options: [
+            { value: "_blank", text: "Blank" },
+            { value: "_self", text: "Self" },
+            { value: "_parent", text: "Parent" },
+            { value: "_top", text: "Top" },
+          ],
+          help: this.$t('gearsdigital.enhanced-toolbar-link-dialog.target.help')
+        },
+        title: {
+          label: this.$t('gearsdigital.enhanced-toolbar-link-dialog.title.title'),
+          type: "text",
+        },
+        anchor: {
+          label: this.$t('gearsdigital.enhanced-toolbar-link-dialog.anchor.title'),
+          type: "text",
+        },
+      },
+      attributes: {
+        selectedLinkTarget: null,
+        title: null,
+        anchor: null
+      },
     };
   },
   watch: {
@@ -154,6 +169,9 @@ export default {
     kirbytext() {
       return this.$store.state.system.info.kirbytext;
     },
+    urlWithAnchor() {
+      return this.attributes.anchor ? this.value.url + '#' + this.attributes.anchor : this.value.url;
+    }
   },
   methods: {
     open(input, selection) {
@@ -170,7 +188,11 @@ export default {
       this.value.text = null;
       this.search = null;
       this.pagination.page = 1;
-      this.selectedLinkTarget = null;
+      this.attributes = {
+        selectedLinkTarget: null,
+        title: null,
+        anchor: null
+      }
     },
     selectTab(tab) {
       this.currentTab = tab;
@@ -199,11 +221,20 @@ export default {
     },
     createKirbytext() {
       const parts = [];
-      parts.push(`link: ${this.value.url}`);
+
+      parts.push(`link: ${this.urlWithAnchor}`);
       parts.push(`text: ${this.value.text}`);
 
-      if (this.selectedLinkTarget) {
-        parts.push(`target: ${this.selectedLinkTarget}`);
+      if (this.attributes.selectedLinkTarget) {
+        parts.push(`target: ${this.attributes.selectedLinkTarget}`);
+      }
+
+      if (this.attributes.title) {
+        parts.push(`title: ${this.attributes.title}`);
+      }
+
+      if (this.value.url.indexOf('http') === 0) {
+        parts.push(`rel: nofollow`);
       }
 
       return `(${parts.join(" ")})`;
