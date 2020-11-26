@@ -70,6 +70,7 @@ return [
 - English
 - Czech
 - French
+- Dutch
 
 > Pull requests with additonal translations are very much appreciated!
 
