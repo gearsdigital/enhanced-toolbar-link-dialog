@@ -24,7 +24,7 @@ Cypress.Commands.add('login', function (options = {}) {
         .type(user.password)
 
       cy.get('button')
-        .click()
+          .click({force: true})
     })
     cy.url().should('include', '/panel')
   })
@@ -34,15 +34,13 @@ Cypress.Commands.add('openFirstNote', function (options = {}) {
   cy.visit('http://localhost:8000/panel');
 
   cy.get('.k-section-name-notes li:first-child a')
-    .click()
+      .click({force: true})
 });
 
 Cypress.Commands.add('openDialog', function (options = {}) {
-  cy.get('.k-toolbar .k-icon-url').click()
+  cy.get('.k-toolbar .k-icon-url').click({force: true})
 });
 
 Cypress.Commands.add('openInternalTab', function (options = {}) {
-  cy.get(".k-dialog-body nav").contains("Internal Link").click();
+  cy.get(".k-dialog-body nav").contains("Internal Link").click({force: true});
 });
-
-
