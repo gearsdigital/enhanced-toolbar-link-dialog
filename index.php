@@ -33,6 +33,8 @@ $translations = [
         'gearsdigital.enhanced-toolbar-link-dialog.empty' => 'Aucune page trouvée',
         'gearsdigital.enhanced-toolbar-link-dialog.target.title' => 'Cible du lien',
         'gearsdigital.enhanced-toolbar-link-dialog.target.help' => 'Spécifiez où ouvrir le document lié.',
+        'gearsdigital.enhanced-toolbar-link-dialog.title.title' => 'Titre',
+        'gearsdigital.enhanced-toolbar-link-dialog.anchor.title' => 'Ancre',
     ],
     'nl' => [
         'gearsdigital.enhanced-toolbar-link-dialog.internal' => 'Interne Link',
