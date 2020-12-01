@@ -43,6 +43,7 @@ jobs:
         with:
           working-directory: ./starterkit/site/plugins/enhanced-toolbar-link-dialog
           record: true
+          parallel: true
           browser: chrome
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
