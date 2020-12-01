@@ -7,8 +7,6 @@ describe("Enhanced Link Toolbar Dialog", () => {
 
     cy.get(".k-dialog-search .k-text-input").type("jun",{delay: 500}).should("have.value", "jun");
 
-    cy.wait(1000);
-
     cy.get(".k-pages-dialog .k-list")
       .find(".k-list-item")
       .should("have.length", 1);
@@ -28,29 +26,6 @@ describe("Enhanced Link Toolbar Dialog", () => {
     cy.get(".k-pages-dialog .k-list")
       .find(".k-list-item")
       .should("have.length", 1);
-  });
-
-  describe("Options", () => {
-    beforeEach(() => {
-      cy.task('copyKirbyConfig');
-      cy.login();
-      cy.openFirstNote();
-      cy.openDialog();
-    });
-
-    afterEach(() => {
-      cy.task('restoreKirbyConfig')
-    });
-
-    it('link.title and tab.order', () => {
-      cy.wait(2000);
-
-      cy.get(".k-pages-dialog .k-list-item:first-child")
-        .should(
-          "include.text",
-          "###"
-        );
-    });
   });
 
   describe("KirbyText", () => {
@@ -73,7 +48,7 @@ describe("Enhanced Link Toolbar Dialog", () => {
 
         cy.get(".k-textarea-field textarea").should(
           "include.value",
-          "(link: /notes/in-the-jungle-of-sumatra text: ### In the jungle of Sumatra ###)"
+          "(link: /notes/in-the-jungle-of-sumatra text: In the jungle of Sumatra)"
         );
       });
 
@@ -243,6 +218,27 @@ describe("Enhanced Link Toolbar Dialog", () => {
           "Lorem ipsum dolor"
         );
       });
+    });
+  });
+
+  describe("Options", () => {
+    beforeEach(() => {
+      cy.task('copyKirbyConfig');
+      cy.login();
+      cy.openFirstNote();
+      cy.openDialog();
+    });
+
+    afterEach(() => {
+      cy.task('restoreKirbyConfig')
+    });
+
+    it('link.title and tab.order', () => {
+      cy.get(".k-pages-dialog .k-list-item:first-child")
+        .should(
+          "include.text",
+          "###"
+        );
     });
   });
 });

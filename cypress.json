@@ -1,3 +1,5 @@
 {
-  "projectId": "brvgr5"
+  "projectId": "brvgr5",
+  "video": true,
+  "screenshotOnRunFailure": false
 }
