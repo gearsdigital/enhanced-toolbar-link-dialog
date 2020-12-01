@@ -1,5 +1,5 @@
 {
   "projectId": "brvgr5",
-  "video": true,
+  "video": false,
   "screenshotOnRunFailure": false
 }
