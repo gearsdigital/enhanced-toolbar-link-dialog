@@ -93,8 +93,15 @@ Kirby::plugin('gearsdigital/enhanced-toolbar-link-dialog', [
                         $query = '*';
                     }
 
-                    $pagedCollection = site()->search($query, 'title')->paginate([
-                        'page'  => $page,
+                    $search = site()->search($query, 'title');
+                    $filter = option('gearsdigital.enhanced-toolbar-link-dialog.search.filter');
+
+                    if ($filter) {
+                        $search->filterBy(...$filter);
+                    }
+
+                    $pagedCollection = $search->paginate([
+                        'page' => $page,
                         'limit' => 10,
                     ]);
 
