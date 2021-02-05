@@ -20,9 +20,9 @@ jobs:
       - name: Set up Kirby
         run: |
           composer create-project getkirby/starterkit "3.4.5"
+          composer require getkirby/cms:3.4.5
           mv 3.4.5 starterkit
           cd ./starterkit
-          composer require getkirby/cms:3.4.5
 
       - name: Checkout
         uses: actions/checkout@v2
