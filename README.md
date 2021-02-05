@@ -1,6 +1,6 @@
 # Enhanced Toolbar Link Dialog - A plugin to handle internal links
 
-![E2E](https://github.com/gearsdigital/enhanced-toolbar-link-dialog/workflows/E2E/badge.svg) ![E2E (Nightly)](https://github.com/gearsdigital/enhanced-toolbar-link-dialog/workflows/E2E%20(Nightly)/badge.svg)
+![E2E](https://github.com/gearsdigital/enhanced-toolbar-link-dialog/workflows/E2E/badge.svg) ![E2E (Nightly)](https://github.com/gearsdigital/enhanced-toolbar-link-dialog/workflows/E2E%20(Nightly)/badge.svg) ![Kirby](https://img.shields.io/badge/Kirby-3.4.5-%23)
 
 What the heck is *Enhanced Toolbar Link Dialog* about? Glad you asked! *Enhanced Toolbar Link Dialog* is a perfect helper if you…
 
