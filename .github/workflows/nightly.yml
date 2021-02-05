@@ -17,11 +17,12 @@ jobs:
           php-version: '7.4'
           tools: composer
 
-      - name: Set up latest Kirby (dev-master)
+      - name: Set up Kirby
         run: |
-          composer create-project getkirby/starterkit
+          composer create-project getkirby/starterkit "3.4.5"
+          composer require getkirby/cms:3.4.5
+          mv 3.4.5 starterkit
           cd ./starterkit
-          composer require getkirby/cms:dev-master
 
       - name: Checkout
         uses: actions/checkout@v2
