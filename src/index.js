@@ -1,4 +1,4 @@
-import EnhancedToolbarLinkDialog from "./components/EnhancedToolbarLinkDialog";
+import EnhancedToolbarLinkDialog from "./components/EnhancedToolbarLinkDialog.vue";
 
 panel.plugin('gearsdigital/enhanced-toolbar-link-dialog', {
   components: {
