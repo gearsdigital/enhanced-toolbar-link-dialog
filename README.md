@@ -77,6 +77,39 @@ return [
 
 > Pull requests with additonal translations are very much appreciated!
 
+You can (if you really need to) override and adapt all translations to your needs.
+
+```php
+// site/config/config.php
+'gearsdigital.enhanced-toolbar-link-dialog' => [
+    'translations' => [
+        'en' => [
+            'gearsdigital.enhanced-toolbar-link-dialog.target.blank' => 'Open in new window'
+        ],
+        'de' => [
+            'gearsdigital.enhanced-toolbar-link-dialog.target.blank' => 'Im neuen Fenster öffnen'
+        ],
+    ],
+]
+```
+
+This is the list of all available translation keys:
+
+```
+'gearsdigital.enhanced-toolbar-link-dialog.internal' => 'Internal Link',
+'gearsdigital.enhanced-toolbar-link-dialog.external' => 'External Link',
+'gearsdigital.enhanced-toolbar-link-dialog.empty' => 'No pages found',
+'gearsdigital.enhanced-toolbar-link-dialog.target.title' => 'Link Target',
+'gearsdigital.enhanced-toolbar-link-dialog.target.help' => 'Specify where to open the linked document.',
+'gearsdigital.enhanced-toolbar-link-dialog.target.blank' => 'Blank',
+'gearsdigital.enhanced-toolbar-link-dialog.target.self' => 'Self',
+'gearsdigital.enhanced-toolbar-link-dialog.target.top' => 'Top',
+'gearsdigital.enhanced-toolbar-link-dialog.target.parent' => 'Parent',
+'gearsdigital.enhanced-toolbar-link-dialog.title.title' => 'Title',
+'gearsdigital.enhanced-toolbar-link-dialog.anchor.title' => 'Anchor (#)',
+'gearsdigital.enhanced-toolbar-link-dialog.tab.order' => '0'
+```
+
 ## License
 
 MIT

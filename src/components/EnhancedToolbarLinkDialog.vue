@@ -134,10 +134,10 @@ export default {
           type: "select",
           width: "1/2",
           options: [
-            {value: "_blank", text: "Blank"},
-            {value: "_self", text: "Self"},
-            {value: "_parent", text: "Parent"},
-            {value: "_top", text: "Top"},
+            {value: "_blank", text: this.$t('gearsdigital.enhanced-toolbar-link-dialog.target.blank')},
+            {value: "_self", text: this.$t('gearsdigital.enhanced-toolbar-link-dialog.target.self')},
+            {value: "_parent", text: this.$t('gearsdigital.enhanced-toolbar-link-dialog.target.parent')},
+            {value: "_top", text: this.$t('gearsdigital.enhanced-toolbar-link-dialog.target.top')},
           ],
           help: this.$t('gearsdigital.enhanced-toolbar-link-dialog.target.help')
         },

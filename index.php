@@ -10,8 +10,13 @@ $translations = [
         'gearsdigital.enhanced-toolbar-link-dialog.empty' => 'No pages found',
         'gearsdigital.enhanced-toolbar-link-dialog.target.title' => 'Link Target',
         'gearsdigital.enhanced-toolbar-link-dialog.target.help' => 'Specify where to open the linked document.',
+        'gearsdigital.enhanced-toolbar-link-dialog.target.blank' => 'Blank',
+        'gearsdigital.enhanced-toolbar-link-dialog.target.self' => 'Self',
+        'gearsdigital.enhanced-toolbar-link-dialog.target.top' => 'Top',
+        'gearsdigital.enhanced-toolbar-link-dialog.target.parent' => 'Parent',
         'gearsdigital.enhanced-toolbar-link-dialog.title.title' => 'Title',
-        'gearsdigital.enhanced-toolbar-link-dialog.anchor.title' => 'Anchor',
+        'gearsdigital.enhanced-toolbar-link-dialog.anchor.title' => 'Anchor (#)',
+        'gearsdigital.enhanced-toolbar-link-dialog.tab.order' => '0',
     ],
     'de' => [
         'gearsdigital.enhanced-toolbar-link-dialog.internal' => 'Interner Link',
@@ -19,6 +24,13 @@ $translations = [
         'gearsdigital.enhanced-toolbar-link-dialog.empty' => 'Keine Seiten gefunden.',
         'gearsdigital.enhanced-toolbar-link-dialog.target.title' => 'Link Ziel',
         'gearsdigital.enhanced-toolbar-link-dialog.target.help' => 'Gibt an, wo das verknüpfte Dokument geöffnet werden soll.',
+        'gearsdigital.enhanced-toolbar-link-dialog.target.blank' => 'Blank',
+        'gearsdigital.enhanced-toolbar-link-dialog.target.self' => 'Self',
+        'gearsdigital.enhanced-toolbar-link-dialog.target.top' => 'Top',
+        'gearsdigital.enhanced-toolbar-link-dialog.target.parent' => 'Parent',
+        'gearsdigital.enhanced-toolbar-link-dialog.title.title' => 'Titel',
+        'gearsdigital.enhanced-toolbar-link-dialog.anchor.title' => 'Anker (#)',
+        'gearsdigital.enhanced-toolbar-link-dialog.tab.order' => '0',
     ],
     'cs' => [
         'gearsdigital.enhanced-toolbar-link-dialog.internal' => 'Interní odkaz',
@@ -26,6 +38,13 @@ $translations = [
         'gearsdigital.enhanced-toolbar-link-dialog.empty' => 'Nebyly nalezeny žádné stránky.',
         'gearsdigital.enhanced-toolbar-link-dialog.target.title' => 'Cíl odkazu',
         'gearsdigital.enhanced-toolbar-link-dialog.target.help' => 'Můžete upřesnit, kam se má odkaz otevřít.',
+        'gearsdigital.enhanced-toolbar-link-dialog.target.blank' => 'Blank',
+        'gearsdigital.enhanced-toolbar-link-dialog.target.self' => 'Self',
+        'gearsdigital.enhanced-toolbar-link-dialog.target.top' => 'Top',
+        'gearsdigital.enhanced-toolbar-link-dialog.target.parent' => 'Parent',
+        'gearsdigital.enhanced-toolbar-link-dialog.title.title' => 'Title',
+        'gearsdigital.enhanced-toolbar-link-dialog.anchor.title' => 'Anchor (#)',
+        'gearsdigital.enhanced-toolbar-link-dialog.tab.order' => '0',
     ],
     'fr' => [
         'gearsdigital.enhanced-toolbar-link-dialog.internal' => 'Lien interne',
@@ -33,8 +52,13 @@ $translations = [
         'gearsdigital.enhanced-toolbar-link-dialog.empty' => 'Aucune page trouvée',
         'gearsdigital.enhanced-toolbar-link-dialog.target.title' => 'Cible du lien',
         'gearsdigital.enhanced-toolbar-link-dialog.target.help' => 'Spécifiez où ouvrir le document lié.',
+        'gearsdigital.enhanced-toolbar-link-dialog.target.blank' => 'Blank',
+        'gearsdigital.enhanced-toolbar-link-dialog.target.self' => 'Self',
+        'gearsdigital.enhanced-toolbar-link-dialog.target.top' => 'Top',
+        'gearsdigital.enhanced-toolbar-link-dialog.target.parent' => 'Parent',
         'gearsdigital.enhanced-toolbar-link-dialog.title.title' => 'Titre',
-        'gearsdigital.enhanced-toolbar-link-dialog.anchor.title' => 'Ancre',
+        'gearsdigital.enhanced-toolbar-link-dialog.anchor.title' => 'Ancre (#)',
+        'gearsdigital.enhanced-toolbar-link-dialog.tab.order' => '0',
     ],
     'nl' => [
         'gearsdigital.enhanced-toolbar-link-dialog.internal' => 'Interne Link',
@@ -42,36 +66,37 @@ $translations = [
         'gearsdigital.enhanced-toolbar-link-dialog.empty' => 'Geen pagina\'s gevonden',
         'gearsdigital.enhanced-toolbar-link-dialog.target.title' => 'Link Doel',
         'gearsdigital.enhanced-toolbar-link-dialog.target.help' => 'Geef aan waar het gekoppelde document moet worden geopend.',
+        'gearsdigital.enhanced-toolbar-link-dialog.target.blank' => 'Blank',
+        'gearsdigital.enhanced-toolbar-link-dialog.target.self' => 'Self',
+        'gearsdigital.enhanced-toolbar-link-dialog.target.top' => 'Top',
+        'gearsdigital.enhanced-toolbar-link-dialog.target.parent' => 'Parent',
+        'gearsdigital.enhanced-toolbar-link-dialog.title.title' => 'Titel',
+        'gearsdigital.enhanced-toolbar-link-dialog.anchor.title' => 'Anker (#)',
+        'gearsdigital.enhanced-toolbar-link-dialog.tab.order' => '0',
     ],
 ];
 
-// This quite hacky but enables us to pass options down to VUE.
-// We're programmatically extending translations by adding a "hidden" key.
-// This key can than be comsumed within the Vue part of the plugin using the $t helper.
-// @Fixes: #27
-function tabOrderOptionInterceptor(&$translations)
-{
-    $order = option('gearsdigital.enhanced-toolbar-link-dialog.tab.order', "0");
-
-    foreach ($translations as $k => $v) {
-        $translations[$k] += ["gearsdigital.enhanced-toolbar-link-dialog.tab.order" => $order];
-    }
-
-    return $translations;
-}
-
 Kirby::plugin('gearsdigital/enhanced-toolbar-link-dialog', [
-    'api'          => [
-        'models'      => [
+    'hooks' => [
+        'system.loadPlugins:after' => function () {
+            $translations = option('gearsdigital.enhanced-toolbar-link-dialog.translations', []);
+            if (count($translations) > 0) {
+                kirby()->extend(['translations' => $translations], kirby()->plugin('gearsdigital/enhanced-toolbar-link-dialog'));
+            }
+        },
+    ],
+    'api' => [
+        'models' => [
             // a camelCased model name results in Kirby\Exception\NotFoundException
             'simplepagemodel' => [
-                'type'=> null,
+                'type' => null,
                 'fields' => [
-                    'id'    => function ($page) {
+                    'id' => function ($page) {
                         return $page->id();
                     },
                     'title' => function ($page) {
                         $query = option('gearsdigital.enhanced-toolbar-link-dialog.link.title', '{{ page.title }}');
+
                         return Str::template($query, [
                             'page' => $page,
                             'site' => site(),
@@ -119,5 +144,5 @@ Kirby::plugin('gearsdigital/enhanced-toolbar-link-dialog', [
             ],
         ],
     ],
-    'translations' => tabOrderOptionInterceptor($translations),
+    'translations' => $translations,
 ]);
