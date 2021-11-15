@@ -74,6 +74,62 @@ $translations = [
         'gearsdigital.enhanced-toolbar-link-dialog.anchor.title' => 'Anker (#)',
         'gearsdigital.enhanced-toolbar-link-dialog.tab.order' => '0',
     ],
+    'is' => [
+        'gearsdigital.enhanced-toolbar-link-dialog.internal' => 'Tengill innan vefsvæðis',
+        'gearsdigital.enhanced-toolbar-link-dialog.external' => 'Tengill utan vefsvæðis',
+        'gearsdigital.enhanced-toolbar-link-dialog.empty' => 'Engar síður fundust',
+        'gearsdigital.enhanced-toolbar-link-dialog.target.title' => 'Rammi (Gluggi)',
+        'gearsdigital.enhanced-toolbar-link-dialog.target.help' => 'Tilgreindu hvernig þú vilt að nýr tengill opnist.',
+        'gearsdigital.enhanced-toolbar-link-dialog.target.blank' => 'Nýr gluggi',
+        'gearsdigital.enhanced-toolbar-link-dialog.target.self' => 'Í sama glugga',
+        'gearsdigital.enhanced-toolbar-link-dialog.target.top' => 'Efst',
+        'gearsdigital.enhanced-toolbar-link-dialog.target.parent' => 'Í foreldri',
+        'gearsdigital.enhanced-toolbar-link-dialog.title.title' => 'Titill',
+        'gearsdigital.enhanced-toolbar-link-dialog.anchor.title' => 'Bensli (#)',
+        'gearsdigital.enhanced-toolbar-link-dialog.tab.order' => '0'
+    ],    
+    'da' => [
+        'gearsdigital.enhanced-toolbar-link-dialog.internal' => 'Internt link',
+        'gearsdigital.enhanced-toolbar-link-dialog.external' => 'Eksternt link',
+        'gearsdigital.enhanced-toolbar-link-dialog.empty' => 'Ingen sider blev fundet',
+        'gearsdigital.enhanced-toolbar-link-dialog.target.title' => 'Linkmål',
+        'gearsdigital.enhanced-toolbar-link-dialog.target.help' => 'Angiv, hvor det linkede dokument skal åbnes.',
+        'gearsdigital.enhanced-toolbar-link-dialog.target.blank' => 'Nyt vindue',
+        'gearsdigital.enhanced-toolbar-link-dialog.target.self' => 'I samme vindue',
+        'gearsdigital.enhanced-toolbar-link-dialog.target.top' => 'Top',
+        'gearsdigital.enhanced-toolbar-link-dialog.target.parent' => 'I forældrevinduet',
+        'gearsdigital.enhanced-toolbar-link-dialog.title.title' => 'Titel',
+        'gearsdigital.enhanced-toolbar-link-dialog.anchor.title' => 'Anker (#)',
+        'gearsdigital.enhanced-toolbar-link-dialog.tab.order' => '0'        
+    ],
+    'se' => [
+        'gearsdigital.enhanced-toolbar-link-dialog.internal' => 'Intern länk',
+        'gearsdigital.enhanced-toolbar-link-dialog.external' => 'Ekstern länk',
+        'gearsdigital.enhanced-toolbar-link-dialog.empty' => 'Inga sidor hittades',
+        'gearsdigital.enhanced-toolbar-link-dialog.target.title' => 'Länkmål',
+        'gearsdigital.enhanced-toolbar-link-dialog.target.help' => 'Ange var det länkade dokumentet ska öppnas.',
+        'gearsdigital.enhanced-toolbar-link-dialog.target.blank' => 'Nytt fönster',
+        'gearsdigital.enhanced-toolbar-link-dialog.target.self' => 'Samma fönster',
+        'gearsdigital.enhanced-toolbar-link-dialog.target.top' => 'Topp',
+        'gearsdigital.enhanced-toolbar-link-dialog.target.parent' => 'I föräldrafönstret',
+        'gearsdigital.enhanced-toolbar-link-dialog.title.title' => 'Titel',
+        'gearsdigital.enhanced-toolbar-link-dialog.anchor.title' => 'Ankere (#)',
+        'gearsdigital.enhanced-toolbar-link-dialog.tab.order' => '0'       
+    ],
+    'no' => [
+        'gearsdigital.enhanced-toolbar-link-dialog.internal' => 'Intern lenke',
+        'gearsdigital.enhanced-toolbar-link-dialog.external' => 'Ekstern lenke',
+        'gearsdigital.enhanced-toolbar-link-dialog.empty' => 'Ingen sider funnet',
+        'gearsdigital.enhanced-toolbar-link-dialog.target.title' => 'Linkmål',
+        'gearsdigital.enhanced-toolbar-link-dialog.target.help' => 'Angi hvor det koblede dokumentet skal åpnes.',
+        'gearsdigital.enhanced-toolbar-link-dialog.target.blank' => 'Nytt vindu',
+        'gearsdigital.enhanced-toolbar-link-dialog.target.self' => 'I samme vindu',
+        'gearsdigital.enhanced-toolbar-link-dialog.target.top' => 'Topp',
+        'gearsdigital.enhanced-toolbar-link-dialog.target.parent' => 'I foreldrevinduet',
+        'gearsdigital.enhanced-toolbar-link-dialog.title.title' => 'Tittel',
+        'gearsdigital.enhanced-toolbar-link-dialog.anchor.title' => 'Anker (#)',
+        'gearsdigital.enhanced-toolbar-link-dialog.tab.order' => '0'        
+    ],    
 ];
 
 Kirby::plugin('gearsdigital/enhanced-toolbar-link-dialog', [
