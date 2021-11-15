@@ -111,7 +111,7 @@ Kirby::plugin('gearsdigital/enhanced-toolbar-link-dialog', [
 
                     $pagedCollection = $search->paginate([
                         'page' => $page,
-                        'limit' => 10,
+                        'limit' => option('gearsdigital.enhanced-toolbar-link-dialog.search.pageSize', 5),
                     ]);
 
                     return $this->collection('simplepagecollection', $pagedCollection);

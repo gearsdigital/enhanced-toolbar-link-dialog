@@ -55,6 +55,7 @@ git submodule add https://github.com/gearsdigital/enhanced-toolbar-link-dialog.g
 | `gearsdigital.enhanced-toolbar-link-dialog.link.title ` | `"{{page.title}}"` String | The list item text is created using the [Kirby Query Language](https://getkirby.com/docs/guide/blueprints/query-language) and therefore customizable. It is totally up to you, how the page will appear to your users.<br><br>Within the query you have access to `page`, `site` and `kirby`. |
 | `gearsdigital.enhanced-toolbar-link-dialog.tab.order ` | `"0"` - String |  You can choose between two values. <br><br>`"0"` _"External Link"_ Tab is initially active.<br>`"1"` _"Internal Link"_ Tab is initially active.|
 | `gearsdigital.enhanced-toolbar-link-dialog.search.filter ` | `null` | Filter to apply to search query when retrieving list of internal links. Must be an array of string values compatible with `filterBy()` function. |
+| `gearsdigital.enhanced-toolbar-link-dialog.search.pageSize ` | `"5"` | Configure the page size in search result list. |
 
 #### Examples
 ```php
