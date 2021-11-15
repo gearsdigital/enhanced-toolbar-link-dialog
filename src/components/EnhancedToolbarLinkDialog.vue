@@ -8,17 +8,19 @@
     @close="resetForm"
     :button="$t('insert')"
   >
-    <div v-if="tabs && tabs.length > 1" class="k-header-tabs">
-      <nav>
-        <k-button
-          v-for="tab in tabs"
-          :current="currentTab && currentTab.name === tab.name"
-          class="k-tab-button"
-          @click="selectTab(tab)"
-        >
-          {{ tab.label }}
-        </k-button>
-      </nav>
+    <div class="k-header">
+      <div v-if="tabs && tabs.length > 1" class="k-tabs">
+        <nav>
+          <k-button
+            v-for="tab in tabs"
+            :current="currentTab && currentTab.name === tab.name"
+            class="k-tab-button"
+            @click="selectTab(tab)"
+          >
+            {{ tab.label }}
+          </k-button>
+        </nav>
+      </div>
     </div>
 
     <div class="k-tab" v-if="currentTab.name === 'external'">
@@ -41,12 +43,12 @@
       />
 
       <div v-if="hasPages">
-        <k-list>
-          <k-list-item
-            v-for="page in pages"
-            :key="page.id"
-            :text="page.title"
-            @click="selectPage(page)"
+        <k-items layout="list">
+          <k-item v-for="page in pages"
+                  :key="page.id"
+                  :text="page.title"
+                  layout="list"
+                  @click="selectPage(page)"
           >
             <template slot="options">
               <k-button
@@ -65,8 +67,8 @@
                 :tooltip="$t('select')"
               />
             </template>
-          </k-list-item>
-        </k-list>
+          </k-item>
+        </k-items>
         <k-pagination
           :details="true"
           :dropdown="false"
@@ -130,19 +132,22 @@ export default {
         selectedLinkTarget: {
           label: this.$t('gearsdigital.enhanced-toolbar-link-dialog.target.title'),
           type: "select",
+          width: "1/2",
           options: [
-            { value: "_blank", text: "Blank" },
-            { value: "_self", text: "Self" },
-            { value: "_parent", text: "Parent" },
-            { value: "_top", text: "Top" },
+            {value: "_blank", text: "Blank"},
+            {value: "_self", text: "Self"},
+            {value: "_parent", text: "Parent"},
+            {value: "_top", text: "Top"},
           ],
           help: this.$t('gearsdigital.enhanced-toolbar-link-dialog.target.help')
         },
         title: {
+          width: "1/2",
           label: this.$t('gearsdigital.enhanced-toolbar-link-dialog.title.title'),
           type: "text",
         },
         anchor: {
+          width: "1/2",
           label: this.$t('gearsdigital.enhanced-toolbar-link-dialog.anchor.title'),
           type: "text",
         },
@@ -164,10 +169,11 @@ export default {
   },
   computed: {
     hasPages() {
+      console.log(this.pages);
       return this.pages.length;
     },
     kirbytext() {
-      return this.$store.state.system.info.kirbytext;
+      return this.$config.kirbytext;
     },
     urlWithAnchor() {
       return this.attributes.anchor ? this.value.url + '#' + this.attributes.anchor : this.value.url;
@@ -272,10 +278,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-  .k-tab {
-    padding: 1rem 0;
-  }
-
   // prevent z-index issue with k-line-field
   .k-pagination {
     z-index: 1;
