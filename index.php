@@ -17,6 +17,7 @@ $translations = [
         'gearsdigital.enhanced-toolbar-link-dialog.title.title' => 'Title',
         'gearsdigital.enhanced-toolbar-link-dialog.anchor.title' => 'Anchor (#)',
         'gearsdigital.enhanced-toolbar-link-dialog.tab.order' => '0',
+        'gearsdigital.enhanced-toolbar-link-dialog.advanced' => 'Show advanced settings',
     ],
     'de' => [
         'gearsdigital.enhanced-toolbar-link-dialog.internal' => 'Interner Link',
@@ -31,6 +32,7 @@ $translations = [
         'gearsdigital.enhanced-toolbar-link-dialog.title.title' => 'Titel',
         'gearsdigital.enhanced-toolbar-link-dialog.anchor.title' => 'Anker (#)',
         'gearsdigital.enhanced-toolbar-link-dialog.tab.order' => '0',
+        'gearsdigital.enhanced-toolbar-link-dialog.advanced' => 'Erweiterte Linkeinstellungen',
     ],
     'cs' => [
         'gearsdigital.enhanced-toolbar-link-dialog.internal' => 'Interní odkaz',
@@ -45,6 +47,7 @@ $translations = [
         'gearsdigital.enhanced-toolbar-link-dialog.title.title' => 'Title',
         'gearsdigital.enhanced-toolbar-link-dialog.anchor.title' => 'Anchor (#)',
         'gearsdigital.enhanced-toolbar-link-dialog.tab.order' => '0',
+        'gearsdigital.enhanced-toolbar-link-dialog.advanced' => 'Show advanced settings',
     ],
     'fr' => [
         'gearsdigital.enhanced-toolbar-link-dialog.internal' => 'Lien interne',
@@ -59,6 +62,7 @@ $translations = [
         'gearsdigital.enhanced-toolbar-link-dialog.title.title' => 'Titre',
         'gearsdigital.enhanced-toolbar-link-dialog.anchor.title' => 'Ancre (#)',
         'gearsdigital.enhanced-toolbar-link-dialog.tab.order' => '0',
+        'gearsdigital.enhanced-toolbar-link-dialog.advanced' => 'Show advanced settings',
     ],
     'nl' => [
         'gearsdigital.enhanced-toolbar-link-dialog.internal' => 'Interne Link',
@@ -73,6 +77,7 @@ $translations = [
         'gearsdigital.enhanced-toolbar-link-dialog.title.title' => 'Titel',
         'gearsdigital.enhanced-toolbar-link-dialog.anchor.title' => 'Anker (#)',
         'gearsdigital.enhanced-toolbar-link-dialog.tab.order' => '0',
+        'gearsdigital.enhanced-toolbar-link-dialog.advanced' => 'Show advanced settings',
     ],
 ];
 
@@ -103,7 +108,7 @@ Kirby::plugin('gearsdigital/enhanced-toolbar-link-dialog', [
                             'kirby' => kirby(),
                         ]);
                     },
-                    'slug'  => function ($page) {
+                    'slug' => function ($page) {
                         return URL::makeAbsolute($page->parent().DS.$page->slug());
                     },
                 ],
@@ -111,15 +116,15 @@ Kirby::plugin('gearsdigital/enhanced-toolbar-link-dialog', [
         ],
         'collections' => [
             'simplepagecollection' => [
-                'type'=> null,
+                'type' => null,
                 'model' => 'simplepagemodel',
             ],
         ],
-        'routes'      => [
+        'routes' => [
             [
                 'pattern' => 'enhanced-toolbar-link-dialog/pages',
-                'method'  => 'get',
-                'action'  => function () {
+                'method' => 'get',
+                'action' => function () {
                     $page = get('page');
                     $query = get('search');
 

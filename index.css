@@ -1,4 +1,1 @@
-.k-pagination[data-v-c324a62c] {
-  z-index: 1;
-  position: relative
-}
+.enhanced-toolbar .k-header{padding-top:0;margin-bottom:var(--spacing-4)}.enhanced-toolbar .k-fieldset{padding-bottom:0}.enhanced-toolbar .k-fieldset .k-grid{grid-row-gap:0}.enhanced-toolbar .k-line-field{margin:.5rem 0 .25rem}.enhanced-toolbar .k-fieldset .k-grid{grid-row-gap:1.25rem}.enhanced-toolbar-advanced{margin-bottom:var(--spacing-2)}.enhanced-toolbar-advanced .k-toggle-input-native{margin-right:var(--spacing-2)}.enhanced-toolbar-advanced+.k-form{background-color:var(--color-gray-100);border:1px solid var(--color-gray-300);padding:var(--spacing-3)}.enhanced-toolbar .k-pagination{z-index:1;position:relative}
