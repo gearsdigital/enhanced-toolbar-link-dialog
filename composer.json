@@ -2,7 +2,7 @@
     "name": "gearsdigital/enhanced-toolbar-link-dialog",
     "description": "Enhanced Toolbar Link Dialog is a Kirby 3 plugin which makes it easier to add internal or external references to your content. It extends the default link dialog of Kirby textarea fields.",
     "type": "kirby-plugin",
-    "version": "2.2.0",
+    "version": "2.2.1",
     "license": "MIT",
     "authors": [
         {

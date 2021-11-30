@@ -1,3 +1,10 @@
+## [2.2.1](https://github.com/gearsdigital/enhanced-toolbar-link-dialog/compare/v2.2.0...v2.2.1) (2021-11-30)
+
+
+### Bug Fixes
+
+* update french translations ([3fbd487](https://github.com/gearsdigital/enhanced-toolbar-link-dialog/commit/3fbd4872ef9ecf050a46d6335d8d1b3f9e607490)), closes [#57](https://github.com/gearsdigital/enhanced-toolbar-link-dialog/issues/57)
+
 # [2.2.0](https://github.com/gearsdigital/enhanced-toolbar-link-dialog/compare/v2.1.0...v2.2.0) (2021-11-30)
 
 
