@@ -62,7 +62,7 @@ $translations = [
         'gearsdigital.enhanced-toolbar-link-dialog.title.title' => 'Titre',
         'gearsdigital.enhanced-toolbar-link-dialog.anchor.title' => 'Ancre (#)',
         'gearsdigital.enhanced-toolbar-link-dialog.tab.order' => '0',
-        'gearsdigital.enhanced-toolbar-link-dialog.advanced' => 'Show advanced settings',
+        'gearsdigital.enhanced-toolbar-link-dialog.advanced' => 'Voir les paramètres avancés',
     ],
     'nl' => [
         'gearsdigital.enhanced-toolbar-link-dialog.internal' => 'Interne Link',
