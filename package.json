@@ -19,6 +19,9 @@
     "vue-template-compiler": "^2.6.11"
   },
   "dependencies": {
+    "@ambimax/semantic-release-composer": "github:ambimax/semantic-release-composer",
+    "@semantic-release/changelog": "^6.0.1",
+    "@semantic-release/git": "^10.0.1",
     "vue": "^2.6.11",
     "vue-hot-reload-api": "^2.3.4"
   }
