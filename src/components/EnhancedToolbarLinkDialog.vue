@@ -166,7 +166,6 @@ export default {
   },
   computed: {
     hasPages() {
-      console.log(this.pages);
       return this.pages.length;
     },
     kirbytext() {
@@ -259,7 +258,6 @@ export default {
         : `<${this.value.url}>`;
     },
     fetch() {
-      console.log(this);
       const params = {
         page: this.pagination.page,
         search: this.search,
