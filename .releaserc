@@ -1,0 +1,48 @@
+{
+    "tagFormat": "v${version}",
+    "branches": [
+        "main"
+    ],
+    "plugins": [
+        "@semantic-release/commit-analyzer",
+        {
+            "preset": "angular",
+            "releaseRules": [
+                {
+                    "type": "docs",
+                    "release": "patch"
+                },
+                {
+                    "type": "refactor",
+                    "release": "patch"
+                },
+                {
+                    "type": "improvement",
+                    "release": "patch"
+                }
+            ]
+        },
+        "@semantic-release/release-notes-generator",
+        "@ambimax/semantic-release-composer",
+        "@semantic-release/github",
+        [
+            "@semantic-release/changelog",
+            {
+                "changelogFile": "CHANGELOG.md"
+            }
+        ],
+        [
+            "@ambimax/semantic-release-composer",
+            {
+                "skipOnMissingComposerJson": true
+            }
+        ],
+        [
+            "@semantic-release/git",
+            {
+                "assets": ['CHANGELOG.md', 'package.json', 'package-lock.json', 'composer.json', 'composer.lock'],
+                "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+            }
+        ]
+    ]
+}
