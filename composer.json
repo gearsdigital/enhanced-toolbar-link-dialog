@@ -15,6 +15,5 @@
     },
     "config": {
         "optimize-autoloader": true
-    },
-    "version": "1.4.0"
+    }
 }
