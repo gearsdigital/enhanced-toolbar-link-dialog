@@ -36,30 +36,28 @@
         icon="search" />
 
       <div v-if="hasPages">
-        <k-items layout="list">
-          <k-item
-            v-for="page in pages"
-            :key="page.id"
-            :text="page.title"
-            layout="list"
-            @click="selectPage(page)">
-            <template slot="options">
-              <k-button
-                v-if="isCurrentPage(page)"
-                slot="options"
-                autofocus="true"
-                icon="check"
-                theme="positive"
-                :tooltip="$t('remove')" />
-              <k-button
-                v-else
-                slot="options"
-                autofocus="true"
-                icon="circle-outline"
-                :tooltip="$t('select')" />
-            </template>
-          </k-item>
-        </k-items>
+        <k-item
+          v-for="page in pages"
+          :key="page.id"
+          :text="page.title"
+          layout="list"
+          @click="selectPage(page)">
+          <template slot="options">
+            <k-button
+              v-if="isCurrentPage(page)"
+              slot="options"
+              autofocus="true"
+              icon="check"
+              theme="positive"
+              :tooltip="$t('remove')" />
+            <k-button
+              v-else
+              slot="options"
+              autofocus="true"
+              icon="circle-outline"
+              :tooltip="$t('select')" />
+          </template>
+        </k-item>
         <k-pagination
           :details="true"
           :dropdown="false"
@@ -323,6 +321,10 @@ export default {
   .k-pagination {
     z-index: 1;
     position: relative;
+  }
+
+  .k-list-item {
+    margin-bottom: 2px;
   }
 }
 </style>
