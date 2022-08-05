@@ -7,22 +7,22 @@
     "recognizeSelfClosing": true
   },
   "devDependencies": {
-    "@vue/component-compiler-utils": "^3.2.0",
-    "cssnano": "^4.1.10",
+    "@vue/component-compiler-utils": "^3.3.0",
+    "cssnano": "^5.1.12",
     "cypress": "^6.0.1",
-    "eslint": "^8.3.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-prettier-vue": "^3.1.0",
-    "eslint-plugin-vue": "^8.1.1",
-    "prettier": "^2.4.1",
-    "sass": "^1.29.0",
-    "vue-template-compiler": "^2.6.11"
+    "eslint": "^8.21.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier-vue": "^4.2.0",
+    "eslint-plugin-vue": "^9.3.0",
+    "prettier": "^2.7.1",
+    "sass": "^1.54.2",
+    "vue-template-compiler": "^2.7.8"
   },
   "dependencies": {
     "@ambimax/semantic-release-composer": "github:ambimax/semantic-release-composer",
     "@semantic-release/changelog": "^6.0.1",
     "@semantic-release/git": "^10.0.1",
-    "vue": "^2.6.11",
+    "vue": "^3.2.37",
     "vue-hot-reload-api": "^2.3.4"
   }
 }
