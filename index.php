@@ -148,9 +148,8 @@ Kirby::plugin('gearsdigital/enhanced-toolbar-link-dialog', [
     ],
     'api' => [
         'models' => [
-            // a camelCased model name results in Kirby\Exception\NotFoundException
             'simplepagemodel' => [
-                'type' => null,
+                'type' => 'Page',
                 'fields' => [
                     'id' => function ($page) {
                         return $page->id();
@@ -172,7 +171,6 @@ Kirby::plugin('gearsdigital/enhanced-toolbar-link-dialog', [
         ],
         'collections' => [
             'simplepagecollection' => [
-                'type' => null,
                 'model' => 'simplepagemodel',
             ],
         ],
