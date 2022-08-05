@@ -1,3 +1,11 @@
+## [2.2.3](https://github.com/gearsdigital/enhanced-toolbar-link-dialog/compare/v2.2.2...v2.2.3) (2022-08-05)
+
+
+### Bug Fixes
+
+* pages are now shown again ([3af135d](https://github.com/gearsdigital/enhanced-toolbar-link-dialog/commit/3af135d747d41a50ad39cc0fa9422ef144e98a81)), closes [#67](https://github.com/gearsdigital/enhanced-toolbar-link-dialog/issues/67)
+* resolve deprecation warning upon login and save actions ([9024e93](https://github.com/gearsdigital/enhanced-toolbar-link-dialog/commit/9024e93801d3b78080ba0723459e5da92083c82b)), closes [#60](https://github.com/gearsdigital/enhanced-toolbar-link-dialog/issues/60)
+
 ## [2.2.2](https://github.com/gearsdigital/enhanced-toolbar-link-dialog/compare/v2.2.1...v2.2.2) (2021-11-30)
 
 
