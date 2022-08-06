@@ -1,3 +1,10 @@
+## [2.2.4](https://github.com/gearsdigital/enhanced-toolbar-link-dialog/compare/v2.2.3...v2.2.4) (2022-08-06)
+
+
+### Bug Fixes
+
+* qualify model type to prevent dialog errors ([f307adf](https://github.com/gearsdigital/enhanced-toolbar-link-dialog/commit/f307adff1c32f334e0ceff22756987b8e5c3f24c)), closes [#71](https://github.com/gearsdigital/enhanced-toolbar-link-dialog/issues/71)
+
 ## [2.2.3](https://github.com/gearsdigital/enhanced-toolbar-link-dialog/compare/v2.2.2...v2.2.3) (2022-08-05)
 
 
