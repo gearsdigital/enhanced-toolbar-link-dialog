@@ -149,7 +149,7 @@ Kirby::plugin('gearsdigital/enhanced-toolbar-link-dialog', [
     'api' => [
         'models' => [
             'simplepagemodel' => [
-                'type' => 'Page',
+                'type' => 'Kirby\Cms\Page',
                 'fields' => [
                     'id' => function ($page) {
                         return $page->id();
