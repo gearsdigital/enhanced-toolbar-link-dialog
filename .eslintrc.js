@@ -1,56 +1,22 @@
 module.exports = {
-  extends: ["plugin:vue/recommended", "plugin:prettier-vue/recommended", "prettier"],
-
-  settings: {
-    "prettier-vue": {
-      // Settings for how to process Vue SFC Blocks
-      SFCBlocks: {
-        /**
-         * Use prettier to process `<template>` blocks or not
-         *
-         * If set to `false`, you may need to enable those vue rules that are disabled by `eslint-config-prettier`,
-         * because you need them to lint `<template>` blocks
-         *
-         * @default true
-         */
-        template: true,
-
-        /**
-         * Use prettier to process `<script>` blocks or not
-         *
-         * If set to `false`, you may need to enable those rules that are disabled by `eslint-config-prettier`,
-         * because you need them to lint `<script>` blocks
-         *
-         * @default true
-         */
-        script: true,
-
-        /**
-         * Use prettier to process `<style>` blocks or not
-         *
-         * @default true
-         */
-        style: true,
-      },
-      usePrettierrc: true,
-      fileInfoOptions: {
-        withNodeModules: false,
-      },
-    },
-  },
-
+  extends: [
+    "eslint:recommended",
+    "plugin:cypress/recommended",
+    "plugin:vue/recommended",
+    "prettier"
+  ],
   rules: {
-    "prettier-vue/prettier": [
+    "vue/attributes-order": "error",
+    "vue/component-definition-name-casing": "off",
+    "vue/html-closing-bracket-newline": [
       "error",
       {
-        // Override all options of `prettier` here
-        // @see https://prettier.io/docs/en/options.html
-        printWidth: 100,
-        singleQuote: false,
-        semi: true,
-        trailingComma: "es5",
-        bracketSameLine: true,
-      },
+        singleline: "never",
+        multiline: "always"
+      }
     ],
-  },
+    "vue/multi-word-component-names": "off",
+    "vue/require-default-prop": "off",
+    "vue/require-prop-types": "error"
+  }
 };
