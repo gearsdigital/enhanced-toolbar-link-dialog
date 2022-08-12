@@ -1,9 +1,10 @@
 # Enhanced Toolbar Link Dialog
 
-![Kirby](https://img.shields.io/badge/Kirby-3.7-brightgreen.svg?style=flat-square)
-![PHP 8.0](https://img.shields.io/badge/php-8.*-brightgreen.svg?style=flat-square&color=8892BF)
-![Version](https://img.shields.io/github/v/release/gearsdigital/enhanced-toolbar-link-dialog?label=Version&style=flat-square)
-![Downloads](https://img.shields.io/packagist/dt/gearsdigital/enhanced-toolbar-link-dialog?style=flat-square&label=Downloads)
+![Kirby](https://img.shields.io/badge/Kirby-3.7-brightgreen.svg)
+![Version](https://img.shields.io/github/v/release/gearsdigital/enhanced-toolbar-link-dialog?label=Version&color=4CC61E&logo=github)
+![E2E](https://github.com/gearsdigital/enhanced-toolbar-link-dialog/workflows/E2E/badge.svg)
+![Downloads](https://img.shields.io/packagist/dt/gearsdigital/enhanced-toolbar-link-dialog?label=Downloads)
+![PHP 8.0](https://img.shields.io/badge/php-8.*-brightgreen.svg?color=8892BF&logo=php)
 
 This plugin extends the default link dialog with a search functionality. This makes it possible, to create links to _existing_ or _external_ pages.
 
