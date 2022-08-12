@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  test:
+  test_3-6:
     runs-on: ubuntu-latest
 
     name: Dialog
@@ -21,7 +21,44 @@ jobs:
 
       - name: Set up Kirby
         run: |
-          composer create-project getkirby/starterkit --no-install
+          composer create-project getkirby/starterkit="3.6.*" --no-install
+          cd ./starterkit
+          composer config allow-plugins.composer/installers true
+          composer config allow-plugins.composer/composer true
+          composer config allow-plugins.getkirby/composer-installer true
+          composer install
+
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          path: ./starterkit/site/plugins/enhanced-toolbar-link-dialog
+
+      - name: Start Webserver
+        run: |
+          cd ./starterkit
+          nohup php -S localhost:8000 kirby/router.php > /dev/null 2>&1 &
+      - name: Run Cypress
+        uses: cypress-io/github-action@v4
+        with:
+          working-directory: ./starterkit/site/plugins/enhanced-toolbar-link-dialog
+          record: false
+          browser: firefox
+
+  test_3-7:
+    runs-on: ubuntu-latest
+
+    name: Dialog
+    steps:
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.0'
+          tools: composer
+
+      - name: Set up Kirby
+        run: |
+          composer create-project getkirby/starterkit="3.7.*" --no-install
           cd ./starterkit
           composer config allow-plugins.composer/installers true
           composer config allow-plugins.composer/composer true
