@@ -66,6 +66,11 @@ and it works with default textareas as well.</p>
 </details>
 
 <details>
+<summary><b>Can I create anchor only links?</b></summary>
+<p>It is possible to have anchor only links if you want to jump to a specific part of the same page you're currently editing - just leave the Link-Field empty and fill the Anchor-Field.</p>
+</details>
+
+<details>
 <summary><b>Can I customize the result list page title?</b></summary>
 <p>Yes, you can use the option <code>title</code> to build a title that fit your needs by using <a href="https://getkirby.com/docs/guide/blueprints/query-language">Kirby Query Language</a>.</p>
 <p>Within a query you have access to a <code>page</code>, <code>site</code> and <code>kirby</code> object.</p>
