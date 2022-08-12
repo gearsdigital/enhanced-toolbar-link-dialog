@@ -1,6 +1,7 @@
 # Enhanced Toolbar Link Dialog
 
-![Kirby](https://img.shields.io/badge/Kirby-3.7-brightgreen.svg)
+![Kirby](https://img.shields.io/badge/Kirby-3.7-brightgreen.svg)`
+![Kirby](https://img.shields.io/badge/Kirby-3.6-brightgreen.svg)`
 ![Version](https://img.shields.io/github/v/release/gearsdigital/enhanced-toolbar-link-dialog?label=Version&color=4CC61E&logo=github)
 ![E2E](https://github.com/gearsdigital/enhanced-toolbar-link-dialog/workflows/E2E/badge.svg)
 ![Downloads](https://img.shields.io/packagist/dt/gearsdigital/enhanced-toolbar-link-dialog?label=Downloads)
