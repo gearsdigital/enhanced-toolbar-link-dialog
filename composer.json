@@ -14,6 +14,10 @@
         "getkirby/composer-installer": "^1.1"
     },
     "config": {
-        "optimize-autoloader": true
+        "optimize-autoloader": true,
+        "allow-plugins": {
+            "composer/installers": true,
+            "getkirby/composer-installer": true
+        }
     }
 }
