@@ -119,14 +119,21 @@ export default {
 		appendAnchor(href) {
 			let anchor = this.$refs.dialog.model.anchor;
 
+			if (!anchor) {
+				return href;
+			}
+
+			// ensure href to be defined, otherwise it would get concatenated
+			// to "undefined + #anchor" below
+			if (!href) {
+				href = "";
+			}
+
 			if (anchor.startsWith("#")) {
 				return href + anchor;
 			}
 
-			if (anchor) {
-				return href + "#" + anchor;
-			}
-			return href;
+			return href + "#" + anchor;
 		},
 		listener(evt) {
 			if (evt.detail.page !== null) {
