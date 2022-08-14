@@ -41,8 +41,7 @@ export default {
 					label: this.$t("title"),
 					type: "text",
 					counter: false,
-					icon: "title",
-					width: "1/2"
+					icon: "title"
 				},
 				anchor: {
 					label: this.$t(
@@ -56,7 +55,8 @@ export default {
 				target: {
 					label: this.$t("open.newWindow"),
 					type: "toggle",
-					text: [this.$t("no"), this.$t("yes")]
+					text: [this.$t("no"), this.$t("yes")],
+					width: "1/2"
 				}
 			};
 		},
@@ -73,6 +73,14 @@ export default {
 		close() {
 			this.$emit("cancel");
 			this.removeListener();
+
+			this.link = {
+				href: null,
+				title: null,
+				target: false,
+				text: null,
+				anchor: null
+			};
 		},
 		submit() {
 			this.$emit(
