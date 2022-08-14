@@ -1,3 +1,25 @@
+# [3.0.0](https://github.com/gearsdigital/enhanced-toolbar-link-dialog/compare/v2.2.4...v3.0.0) (2022-08-14)
+
+
+### Bug Fixes
+
+* **dialog:** reset form after dialog closed and optimize input order ([8a86da7](https://github.com/gearsdigital/enhanced-toolbar-link-dialog/commit/8a86da7eef6893b8539794fc50e0972e39d1c03d))
+* handle anchor only links correctly ([70da1c9](https://github.com/gearsdigital/enhanced-toolbar-link-dialog/commit/70da1c9ba75eb25f9940fef024e2145bcf573885))
+
+
+### Features
+
+* add support for blocks and compatibility to Kirby 3.7 ([16e26e3](https://github.com/gearsdigital/enhanced-toolbar-link-dialog/commit/16e26e3f19f7082ef8fbfbcfdf0b31ac1ae5189a)), closes [#59](https://github.com/gearsdigital/enhanced-toolbar-link-dialog/issues/59)
+* **test:** add basic integration tests ([b3bd126](https://github.com/gearsdigital/enhanced-toolbar-link-dialog/commit/b3bd126ba8f9596e8428a56610b9972ded355450))
+* **test:** run tests for Kirby 3.6 and 3.7 ([0816299](https://github.com/gearsdigital/enhanced-toolbar-link-dialog/commit/0816299ba102ff3d656f18b0ffe4ae720964d7a1))
+
+
+### BREAKING CHANGES
+
+* While adding support for Kirby blocks the user interface and the user experience got a revision that itself led to a major rework of the code base.
+
+I simplified the process of selecting pages and optimised the configurability. It is now possible not only to customize the page title, but also to sort and filter the list of results.
+
 ## [2.2.4](https://github.com/gearsdigital/enhanced-toolbar-link-dialog/compare/v2.2.3...v2.2.4) (2022-08-06)
 
 
