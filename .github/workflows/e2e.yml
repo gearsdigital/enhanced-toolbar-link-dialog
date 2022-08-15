@@ -33,6 +33,11 @@ jobs:
         with:
           path: ./starterkit/site/plugins/enhanced-toolbar-link-dialog
 
+      - name: Prepare
+        run: |
+          mv ./starterkit/site/blueprints/pages/note.yml ./starterkit/site/blueprints/pages/note.yml.bak
+          cp ./starterkit/site/plugins/enhanced-toolbar-link-dialog/cypress/fixtures/note.yml ./starterkit/site/blueprints/pages/note.yml
+
       - name: Start Webserver
         run: |
           cd ./starterkit
@@ -69,6 +74,11 @@ jobs:
         uses: actions/checkout@v3
         with:
           path: ./starterkit/site/plugins/enhanced-toolbar-link-dialog
+
+      - name: Prepare
+        run: |
+          mv ./starterkit/site/blueprints/pages/note.yml ./starterkit/site/blueprints/pages/note.yml.bak
+          cp ./starterkit/site/plugins/enhanced-toolbar-link-dialog/cypress/fixtures/note.yml ./starterkit/site/blueprints/pages/note.yml
 
       - name: Start Webserver
         run: |

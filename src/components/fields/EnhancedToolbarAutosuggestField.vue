@@ -7,7 +7,7 @@
 			icon="file-document"
 			:label="label"
 			placeholder="Enter a URL or search term…"
-			name="text"
+			name="autosuggesttext"
 			@input="updateSearch"
 		/>
 		<k-tags-field

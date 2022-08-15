@@ -1,7 +1,9 @@
 {
   "scripts": {
     "dev": "npx -y kirbyup src/index.js --watch",
-    "build": "npx -y kirbyup src/index.js"
+    "build": "npx -y kirbyup src/index.js",
+    "run:e2e": "cypress run --config-file cypress.config.local.js",
+    "open:e2e": "cypress open --config-file cypress.config.local.js"
   },
   "posthtml": {
     "recognizeSelfClosing": true
