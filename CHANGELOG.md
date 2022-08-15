@@ -1,3 +1,10 @@
+## [3.0.1](https://github.com/gearsdigital/enhanced-toolbar-link-dialog/compare/v3.0.0...v3.0.1) (2022-08-15)
+
+
+### Bug Fixes
+
+* clarify placeholder text of link input field ([00c4580](https://github.com/gearsdigital/enhanced-toolbar-link-dialog/commit/00c4580916e46260de09ba37b4aa4e08fe8a49bd))
+
 # [3.0.0](https://github.com/gearsdigital/enhanced-toolbar-link-dialog/compare/v2.2.4...v3.0.0) (2022-08-14)
 
 
