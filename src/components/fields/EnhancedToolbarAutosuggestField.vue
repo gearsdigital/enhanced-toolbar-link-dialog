@@ -6,7 +6,7 @@
 			:counter="false"
 			icon="file-document"
 			:label="label"
-			placeholder="Enter a search term…"
+			placeholder="Enter a URL or search term…"
 			name="text"
 			@input="updateSearch"
 		/>
