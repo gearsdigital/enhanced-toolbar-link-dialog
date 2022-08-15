@@ -56,6 +56,17 @@ Cypress.Commands.add('openWriterDialog', () => {
 
 /**
  * @memberof cy
+ * @method openToolbarDialog
+ * @returns Chainable
+ */
+Cypress.Commands.add("openToolbarDialog", () => {
+	cy.get('.k-field-name-texttest button[title="Link"]')
+		.scrollIntoView()
+		.click();
+});
+
+/**
+ * @memberof cy
  * @method addAndSelectText
  * @returns Chainable
  */
@@ -92,6 +103,18 @@ Cypress.Commands.add('addTitle', (value) => {
 
 /**
  * @memberof cy
+ * @method addText
+ * @param {string} value
+ * @returns Chainable
+ */
+Cypress.Commands.add("addText", (value) => {
+  cy.get(".k-dialog").within(() => {
+    cy.get(".k-field-name-text input").type(value);
+  });
+});
+
+/**
+ * @memberof cy
  * @method toogleTarget
  * @returns Chainable
  */
@@ -103,10 +126,10 @@ Cypress.Commands.add('toogleTarget', () => {
 
 /**
  * @memberof cy
- * @method closeWriterDialog
+ * @method closeDialog
  * @returns Chainable
  */
-Cypress.Commands.add('closeWriterDialog', () => {
+Cypress.Commands.add('closeDialog', () => {
   cy.get(".k-dialog").within(() => {
     cy.get("button").contains("Ok").click();
   });
@@ -125,12 +148,12 @@ Cypress.Commands.add('addAnchor', (anchor) => {
 
 /**
  * @memberof cy
- * @method verifyLink
+ * @method verifyLinkElement
  * @param {{text:string?, href:string?, title:string?, target:string?}} linkValues
  * @param {*} [args]
  * @returns Chainable
  */
-Cypress.Commands.add('verifyLink', ({href, title, target}) => {
+Cypress.Commands.add('verifyLinkElement', ({href, title, target}) => {
 
   // Link text is set by addAndSelectText() and neccessary to have cypress wait
   // for prose mirror to finish the rendering
@@ -155,4 +178,13 @@ Cypress.Commands.add('verifyLink', ({href, title, target}) => {
   }
 });
 
-
+/**
+ * @memberof cy
+ * @method verifyLinkText
+ * @param {{text:string?, href:string?, title:string?, target:string?}} linkValues
+ * @param {*} [args]
+ * @returns Chainable
+ */
+Cypress.Commands.add("verifyLinkText", (value) => {
+	cy.get(".k-field-name-texttest textarea").should("have.value", value);
+});

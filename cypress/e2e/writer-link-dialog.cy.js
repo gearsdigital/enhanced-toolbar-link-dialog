@@ -32,9 +32,9 @@ describe("Writer Link Dialog", () => {
     );
 
     // close writer dialog
-    cy.closeWriterDialog();
+    cy.closeDialog();
 
-    cy.verifyLink({
+    cy.verifyLinkElement({
       text: "Lorem",
       href: "/notes/chasing-waterfalls",
       title: "Chasing waterfalls"
@@ -46,9 +46,9 @@ describe("Writer Link Dialog", () => {
     cy.openWriterDialog();
     cy.addLink("/my-path");
     cy.addTitle("My path"); // I don't know why (yet), but the test fails without title
-    cy.closeWriterDialog();
+    cy.closeDialog();
 
-    cy.verifyLink({
+    cy.verifyLinkElement({
       href: "/my-path",
       title: "My path"
     });
@@ -59,9 +59,9 @@ describe("Writer Link Dialog", () => {
     cy.openWriterDialog();
     cy.addLink("https://example.com");
     cy.addTitle("My path"); // I don't know why (yet), but the test fails without title
-    cy.closeWriterDialog();
+    cy.closeDialog();
 
-    cy.verifyLink({
+    cy.verifyLinkElement({
       href: "https://example.com",
       title: "My path"
     });
@@ -72,9 +72,9 @@ describe("Writer Link Dialog", () => {
     cy.openWriterDialog();
     cy.addLink("/my-path");
     cy.addAnchor("#lorem");
-    cy.closeWriterDialog();
+    cy.closeDialog();
 
-    cy.verifyLink({
+    cy.verifyLinkElement({
       href: "/my-path#lorem",
     });
   });
@@ -83,9 +83,9 @@ describe("Writer Link Dialog", () => {
     cy.addAndSelectText()
     cy.openWriterDialog();
     cy.addAnchor("#lorem");
-    cy.closeWriterDialog();
+    cy.closeDialog();
 
-    cy.verifyLink({
+    cy.verifyLinkElement({
       href: "#lorem"
     });
   });
@@ -95,9 +95,9 @@ describe("Writer Link Dialog", () => {
     cy.openWriterDialog();
     cy.addLink("https://example.com");
     cy.toogleTarget();
-    cy.closeWriterDialog();
+    cy.closeDialog();
 
-    cy.verifyLink({
+    cy.verifyLinkElement({
       href: "https://example.com",
       target: "_blank"
     });
@@ -108,9 +108,9 @@ describe("Writer Link Dialog", () => {
     cy.openWriterDialog();
     cy.addLink("https://example.com");
     cy.addTitle("I am legend!");
-    cy.closeWriterDialog();
+    cy.closeDialog();
 
-    cy.verifyLink({
+    cy.verifyLinkElement({
       href: "https://example.com",
       title: "I am legend!"
     });
