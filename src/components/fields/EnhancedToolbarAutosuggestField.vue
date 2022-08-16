@@ -21,6 +21,7 @@
 			max="1"
 		/>
 		<enhanced-toolbar-dropdown
+      v-if="pages.length"
 			:pages="pages"
 			:pagination="pagination"
 			@select="selectPage"

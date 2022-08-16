@@ -1,13 +1,18 @@
 <template>
-	<dialog :open="open">
-		<k-item
-			v-for="page of pages"
+	<dialog class="enhanced-toolbar-dialog-element" :open="open">
+		<div
+			v-for="(page, index) of pages"
 			:key="page.id"
-			:text="page.text"
-			:image="page.image"
-			:info="page.id"
-			@click="select(page)"
-		/>
+			:data-index="index"
+			:tabindex="0"
+		>
+			<k-item
+				:text="page.text"
+				:image="page.image"
+				:info="page.id"
+				@click="select(page)"
+			/>
+		</div>
 		<k-pagination
 			align="center"
 			:details="true"
@@ -36,18 +41,69 @@ export default {
 	},
 	data() {
 		return {
-			open: false
+			open: true,
+			currentItem: 0
 		};
 	},
 	watch: {
-		pages(pages) {
-			this.open = pages.length > 0;
+		pages() {
+			this.focusCurrentItem();
 		}
+	},
+	mounted() {
+		this.focusCurrentItem();
+		window.addEventListener("keydown", this.keydownListener);
+	},
+	destroyed() {
+		window.removeEventListener("keydown", this.keydownListener);
 	},
 	methods: {
 		select(page) {
 			this.$emit("select", page);
 			this.open = false;
+			this.currentItem = 0;
+		},
+		focusCurrentItem() {
+			document
+				.querySelector(
+					`.enhanced-toolbar-dialog-element div[data-index="${this.currentItem}"]`
+				)
+				.focus();
+		},
+		blurCurrentItem() {
+			document
+				.querySelector(
+					`.enhanced-toolbar-dialog-element div[data-index="${this.currentItem}"]`
+				)
+				.blur();
+		},
+		keydownListener(event) {
+			const withinUpperBoundary = this.currentItem < this.pages.length - 1;
+			const withinLowerBoundary = this.currentItem > 0;
+			const currentKey = event.code;
+
+			if (currentKey === "ArrowDown" && withinUpperBoundary) {
+				this.blurCurrentItem();
+				this.currentItem++;
+				this.focusCurrentItem();
+			}
+
+			if (currentKey === "ArrowUp" && withinLowerBoundary) {
+				this.blurCurrentItem();
+				this.currentItem--;
+				this.focusCurrentItem();
+			}
+
+			if (currentKey === "Tab") {
+				this.currentItem =
+					parseInt(document.activeElement.getAttribute("data-index"), 10) ?? 0;
+			}
+
+			if (currentKey === "Enter") {
+				event.stopPropagation();
+				event.preventDefault();
+				this.select(this.pages[this.currentItem]);
+			}
 		}
 	}
 };
@@ -87,5 +143,17 @@ dialog[open] {
 
 :deep(img) {
 	object-fit: cover;
+}
+
+dialog > div {
+  margin-bottom: 4px;
+}
+
+dialog > div:focus {
+	outline: none;
+}
+
+dialog > div:focus > :deep(.k-item) {
+	outline: 2px solid var(--color-black);
 }
 </style>
