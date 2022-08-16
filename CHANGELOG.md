@@ -1,3 +1,10 @@
+# [3.1.0](https://github.com/gearsdigital/enhanced-toolbar-link-dialog/compare/v3.0.1...v3.1.0) (2022-08-16)
+
+
+### Features
+
+* **accessibility:** enable keyboard navigation in auto-suggest dropdown ([1f8849b](https://github.com/gearsdigital/enhanced-toolbar-link-dialog/commit/1f8849b94c1a09d1f01ccb8023006e9470cb8755)), closes [#76](https://github.com/gearsdigital/enhanced-toolbar-link-dialog/issues/76)
+
 ## [3.0.1](https://github.com/gearsdigital/enhanced-toolbar-link-dialog/compare/v3.0.0...v3.0.1) (2022-08-15)
 
 
