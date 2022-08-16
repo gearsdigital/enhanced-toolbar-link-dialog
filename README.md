@@ -15,12 +15,13 @@ This plugin extends the default link dialog with a search functionality. This ma
 
 These are all available configuration options and their default values.
 
-| Option      | Description                                                                                                                       | Type      | Default            |
-|-------------|-----------------------------------------------------------------------------------------------------------------------------------|-----------|--------------------|
-| `title`     | Format the page title of the result list using [Kirby Query Language](https://getkirby.com/docs/guide/blueprints/query-language). | `string`  | `{{ page.title }}` |
-| `filter`    | Filter the result list. Learn how to use [`filterBy`](https://getkirby.com/docs/reference/objects/toolkit/collection/filter-by).  | `array`   | `null`             |
-| `sort`      | Sort the result list. Learn how to use [`sortBy`](https://getkirby.com/docs/reference/objects/toolkit/collection/sort-by).        | `array`   | `null`             |
-| `qualified` | Prefix every link with your current [Site-Url](https://getkirby.com/docs/reference/objects/cms/site/url).                         | `boolean` | `false`            |
+| Option         | Description                                                                                                                       | Type      | Default            |
+|----------------|-----------------------------------------------------------------------------------------------------------------------------------|-----------|--------------------|
+| `title`        | Format the page title of the result list using [Kirby Query Language](https://getkirby.com/docs/guide/blueprints/query-language). | `string`  | `{{ page.title }}` |
+| `filter`       | Filter the result list. Learn how to use [`filterBy`](https://getkirby.com/docs/reference/objects/toolkit/collection/filter-by).  | `array`   | `null`             |
+| `sort`         | Sort the result list. Learn how to use [`sortBy`](https://getkirby.com/docs/reference/objects/toolkit/collection/sort-by).        | `array`   | `null`             |
+| `qualified`    | Prefix every link with your current [Site-Url](https://getkirby.com/docs/reference/objects/cms/site/url).                         | `boolean` | `false`            |
+| `translations` | [Override plugin translations](#localization).                                                                                    | `array`   | `[]`               |
 
 ### Usage
 
@@ -31,7 +32,8 @@ return [
     "title" => "{{ page.title }}",
     "filter" => null,
     "sort" => null,
-    "qualified" => false
+    "qualified" => false,
+    "translations" => []
   ]
 ];
 ```
@@ -88,6 +90,42 @@ Filtering compendium</a> to learn more about filtering collections in Kirby.</p>
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+## Localization
+
+This is the list of all available translation keys:
+
+| Key                                                                       | Value                       |
+|---------------------------------------------------------------------------|-----------------------------|
+| `gearsdigital.enhanced-toolbar-link-dialog.anchor.title`                  | Anchor                      |
+| `gearsdigital.enhanced-toolbar-link-dialog.field.autosuggest.placeholder` | Enter a URL or search term… |
+
+
+You can override translations by adding this to your site config.
+
+```php
+// site/config/config.php
+return [
+  "gearsdigital.enhanced-toolbar-link-dialog" => [
+    "translations" => [
+      "en" => [
+        "gearsdigital.enhanced-toolbar-link-dialog.autosuggest.placeholder" => "I'm overridden!",
+      ],
+    ],
+  ]
+]
+```
+
+### Available languages
+
+- English (default)
+- German 🇩🇪
+- French 🇫🇷
+- Dutch 🇳🇱
+- Danish 🇩🇰
+- Norwegian 🇳🇴
+- Swedish 🇸🇪
+- Islandic 🇮🇸
 
 ## License
 

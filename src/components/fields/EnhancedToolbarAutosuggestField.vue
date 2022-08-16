@@ -6,7 +6,11 @@
 			:counter="false"
 			icon="file-document"
 			:label="label"
-			placeholder="Enter a URL or search term…"
+			:placeholder="
+				$t(
+					'gearsdigital.enhanced-toolbar-link-dialog.autosuggest.placeholder'
+				)
+			"
 			name="autosuggesttext"
 			@input="updateSearch"
 		/>
@@ -21,7 +25,7 @@
 			max="1"
 		/>
 		<enhanced-toolbar-dropdown
-      v-if="pages.length"
+			v-if="pages.length"
 			:pages="pages"
 			:pagination="pagination"
 			@select="selectPage"
