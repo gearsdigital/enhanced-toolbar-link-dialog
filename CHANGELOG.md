@@ -1,3 +1,10 @@
+## [3.1.1](https://github.com/gearsdigital/enhanced-toolbar-link-dialog/compare/v3.1.0...v3.1.1) (2022-08-16)
+
+
+### Bug Fixes
+
+* **localization:** add missing localizations and translations ([7e49d01](https://github.com/gearsdigital/enhanced-toolbar-link-dialog/commit/7e49d012735f2cedf64ec3bae26046226815df0d))
+
 # [3.1.0](https://github.com/gearsdigital/enhanced-toolbar-link-dialog/compare/v3.0.1...v3.1.0) (2022-08-16)
 
 
