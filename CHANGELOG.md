@@ -1,3 +1,10 @@
+## [3.1.2](https://github.com/gearsdigital/enhanced-toolbar-link-dialog/compare/v3.1.1...v3.1.2) (2022-08-17)
+
+
+### Bug Fixes
+
+* **auto-suggest:** focus behaviour after typing works now as expected ([76488d4](https://github.com/gearsdigital/enhanced-toolbar-link-dialog/commit/76488d4eeeab9b1d1f98a29267292cd37150a195))
+
 ## [3.1.1](https://github.com/gearsdigital/enhanced-toolbar-link-dialog/compare/v3.1.0...v3.1.1) (2022-08-16)
 
 
