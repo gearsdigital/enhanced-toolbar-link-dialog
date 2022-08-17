@@ -11,39 +11,22 @@ describe("Autosuggest Dropdown", () => {
 		cy.openWriterDialog();
 		cy.addLink("Moun");
 
-		cy.get("dialog > div:nth-child(1)")
-			.should("have.focus", true)
-			.type("{downArrow}{downArrow}");
+		cy.get("dialog > div").first().should("not.have.focus");
+		cy.get("body").type("{downArrow}");
+		cy.get("dialog > div").first().should("have.focus");
+		cy.get("body").type("{downArrow}{downArrow}{downArrow}{downArrow}");
+		cy.get("dialog > div").last().should("have.focus");
+		cy.get("body").type("{upArrow}{upArrow}{upArrow}{upArrow}");
+		cy.get("dialog > div").first().should("have.focus")
+    cy.get("body").type("{enter}");
 
-		cy.get("dialog > div:nth-child(3)")
-			.should("have.focus", true)
-			.type("{upArrow}");
+		// ensure link and title is automatically added after enter
+		cy.get(".k-dialog .k-field-name-title input").should(
+			"have.value",
+			"Mountains"
+		);
 
-		// respect lower boundary
-		cy.get("dialog > div:nth-child(2)")
-			.should("have.focus", true)
-			.type(
-				"{downArrow}{downArrow}{downArrow}{downArrow}{downArrow}{downArrow}"
-			);
-
-		// respect upper boundary
-		cy.get("dialog > div:nth-child(5)")
-			.should("have.focus", true)
-			.type("{upArrow}{upArrow}{upArrow}{upArrow}{upArrow}{upArrow}");
-
-		cy.get("dialog > div:nth-child(1)")
-			.should("have.focus", true)
-			.type("{enter}");
-
-    // ensure link and title is automatically added after enter
-    cy.get(".k-dialog .k-tag").contains("Mountains");
-    cy.get(".k-dialog .k-tag .k-icon-cancel-small").should("have.length", 1);
-    cy.get(".k-dialog .k-field-name-title input").should(
-      "have.value",
-      "Mountains"
-    );
-
-    // close writer dialog
-    cy.closeDialog();
+		// close writer dialog
+		cy.closeDialog();
 	});
 });

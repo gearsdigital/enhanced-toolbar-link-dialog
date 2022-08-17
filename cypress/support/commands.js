@@ -42,7 +42,12 @@ Cypress.Commands.add('login', () => {
  * @returns Chainable
  */
 Cypress.Commands.add('openContentPage', () => {
+  cy.intercept({
+    method: 'GET',
+    url: '/panel/pages/notes+exploring-the-universe',
+  }).as('contentPage');
   cy.get('[data-id="notes/exploring-the-universe"]').click();
+  cy.wait("@contentPage");
 });
 
 /**
@@ -85,7 +90,7 @@ Cypress.Commands.add('addAndSelectText', () => {
  */
 Cypress.Commands.add('addLink', (value) => {
   cy.get(".k-dialog").within(() => {
-    cy.get(".enhanced-toolbar-autosuggest-field input").type(value);
+    cy.get(".enhanced-toolbar-autosuggest-field input").type(value, {delay: 20});
   });
 });
 

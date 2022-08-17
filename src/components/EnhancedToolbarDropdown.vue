@@ -42,40 +42,35 @@ export default {
 	data() {
 		return {
 			open: true,
-			currentItem: 0
+			currentItem: -1
 		};
 	},
 	watch: {
-		pages() {
-			this.focusCurrentItem();
+		currentItem(index) {
+			if (index === -1) {
+				index = 0;
+			}
+      this.focusItem(index);
 		}
 	},
 	mounted() {
-		this.focusCurrentItem();
-		window.addEventListener("keydown", this.keydownListener);
+		window.addEventListener("keyup", this.keydownListener);
 	},
 	destroyed() {
-		window.removeEventListener("keydown", this.keydownListener);
+		window.removeEventListener("keyup", this.keydownListener);
 	},
 	methods: {
 		select(page) {
 			this.$emit("select", page);
 			this.open = false;
-			this.currentItem = 0;
+			this.currentItem = -1;
 		},
-		focusCurrentItem() {
+		focusItem(index) {
 			document
 				.querySelector(
-					`.enhanced-toolbar-dialog-element div[data-index="${this.currentItem}"]`
+					`.enhanced-toolbar-dialog-element div[data-index="${index}"]`
 				)
 				.focus();
-		},
-		blurCurrentItem() {
-			document
-				.querySelector(
-					`.enhanced-toolbar-dialog-element div[data-index="${this.currentItem}"]`
-				)
-				.blur();
 		},
 		keydownListener(event) {
 			const withinUpperBoundary = this.currentItem < this.pages.length - 1;
@@ -83,26 +78,31 @@ export default {
 			const currentKey = event.code;
 
 			if (currentKey === "ArrowDown" && withinUpperBoundary) {
-				this.blurCurrentItem();
-				this.currentItem++;
-				this.focusCurrentItem();
+        if (this.currentItem === -1) {
+					this.currentItem = 0;
+				} else {
+          this.currentItem = this.currentItem + 1;
+				}
 			}
 
 			if (currentKey === "ArrowUp" && withinLowerBoundary) {
-				this.blurCurrentItem();
-				this.currentItem--;
-				this.focusCurrentItem();
+				this.currentItem = this.currentItem - 1;
 			}
 
-			if (currentKey === "Tab") {
-				this.currentItem =
-					parseInt(document.activeElement.getAttribute("data-index"), 10) ?? 0;
+			if (event.shiftKey && currentKey === "Tab") {
+        this.currentItem = this.currentItem - 1;
+			} else if (currentKey === "Tab") {
+        if (this.currentItem === -1) {
+					this.currentItem = 0;
+				} else {
+          this.currentItem = this.currentItem + 1;
+				}
 			}
 
-			if (currentKey === "Enter") {
+			if (currentKey === "Enter" && this.currentItem !== -1) {
+				this.select(this.pages[this.currentItem]);
 				event.stopPropagation();
 				event.preventDefault();
-				this.select(this.pages[this.currentItem]);
 			}
 		}
 	}
@@ -146,7 +146,7 @@ dialog[open] {
 }
 
 dialog > div {
-  margin-bottom: 4px;
+	margin-bottom: 4px;
 }
 
 dialog > div:focus {
