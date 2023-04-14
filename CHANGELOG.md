@@ -1,3 +1,10 @@
+## [3.1.3](https://github.com/gearsdigital/enhanced-toolbar-link-dialog/compare/v3.1.2...v3.1.3) (2023-04-14)
+
+
+### Bug Fixes
+
+* remove styles which changed the height of all kirby modals ([ca3fe6a](https://github.com/gearsdigital/enhanced-toolbar-link-dialog/commit/ca3fe6a93a220c2b7f957582c7f291f7c5f0d227)), closes [#84](https://github.com/gearsdigital/enhanced-toolbar-link-dialog/issues/84)
+
 ## [3.1.2](https://github.com/gearsdigital/enhanced-toolbar-link-dialog/compare/v3.1.1...v3.1.2) (2022-08-17)
 
 
