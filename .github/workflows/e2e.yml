@@ -90,3 +90,88 @@ jobs:
           working-directory: ./starterkit/site/plugins/enhanced-toolbar-link-dialog
           record: false
           browser: firefox
+
+  test_3-8:
+    runs-on: ubuntu-latest
+
+    name: Kirby 3.8
+    steps:
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+          tools: composer
+
+      - name: Set up Kirby
+        run: |
+          composer create-project getkirby/starterkit="3.8.*" --no-install
+          cd ./starterkit
+          composer config allow-plugins.composer/installers true
+          composer config allow-plugins.composer/composer true
+          composer config allow-plugins.getkirby/composer-installer true
+          composer install
+
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          path: ./starterkit/site/plugins/enhanced-toolbar-link-dialog
+
+      - name: Prepare
+        run: |
+          mv ./starterkit/site/blueprints/pages/note.yml ./starterkit/site/blueprints/pages/note.yml.bak
+          cp ./starterkit/site/plugins/enhanced-toolbar-link-dialog/cypress/fixtures/note.yml ./starterkit/site/blueprints/pages/note.yml
+
+      - name: Start Webserver
+        run: |
+          cd ./starterkit
+          nohup php -S localhost:8000 kirby/router.php > /dev/null 2>&1 &
+      - name: Run Cypress
+        uses: cypress-io/github-action@v4
+        with:
+          working-directory: ./starterkit/site/plugins/enhanced-toolbar-link-dialog
+          record: false
+          browser: firefox
+
+  test_3-9:
+    runs-on: ubuntu-latest
+
+    name: Kirby 3.9
+    steps:
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+          tools: composer
+
+      - name: Set up Kirby
+        run: |
+          composer create-project getkirby/starterkit="3.9.*" --no-install
+          cd ./starterkit
+          composer config allow-plugins.composer/installers true
+          composer config allow-plugins.composer/composer true
+          composer config allow-plugins.getkirby/composer-installer true
+          composer install
+
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          path: ./starterkit/site/plugins/enhanced-toolbar-link-dialog
+
+      - name: Prepare
+        run: |
+          mv ./starterkit/site/blueprints/pages/note.yml ./starterkit/site/blueprints/pages/note.yml.bak
+          cp ./starterkit/site/plugins/enhanced-toolbar-link-dialog/cypress/fixtures/note.yml ./starterkit/site/blueprints/pages/note.yml
+
+      - name: Start Webserver
+        run: |
+          cd ./starterkit
+          nohup php -S localhost:8000 kirby/router.php > /dev/null 2>&1 &
+      - name: Run Cypress
+        uses: cypress-io/github-action@v4
+        with:
+          working-directory: ./starterkit/site/plugins/enhanced-toolbar-link-dialog
+          record: false
+          browser: firefox
+
