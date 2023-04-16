@@ -6,7 +6,7 @@
 ![Downloads](https://img.shields.io/packagist/dt/gearsdigital/enhanced-toolbar-link-dialog?label=Downloads)
 ![PHP 8.0](https://img.shields.io/badge/php-8.1-brightgreen.svg?color=8892BF&logo=php)
 
-This plugin extends the default link dialog with a search functionality. This makes it possible, to create links to _existing_ or _external_ pages.
+This plugin extends the default link dialog with search functionality, making it possible to create links to _existing_ or _external_ pages.
 
 <video src="https://user-images.githubusercontent.com/965069/184151351-ec468d93-d4bd-4fc1-827d-22348abbc368.mp4" controls="controls" muted="muted"></video>
 
@@ -63,8 +63,7 @@ git submodule add https://github.com/gearsdigital/enhanced-toolbar-link-dialog.g
 
 <details>
 <summary><b>Can I use this plugin with Kirby Blocks?</b></summary>
-<p>Since version 3.0.0, <a href="https://getkirby.com/docs/reference/panel/fields/blocks">Blocks</a> are supported,
-and it works with default textareas as well.</p>
+<p>Starting from version 3.0.0, <a href="https://getkirby.com/docs/reference/panel/fields/blocks">Blocks</a> are supported, and it also works seamlessly with default textareas.</p>
 </details>
 
 <details>
@@ -73,20 +72,19 @@ and it works with default textareas as well.</p>
 </details>
 
 <details>
-<summary><b>Can I create anchor only links?</b></summary>
-<p>It is possible to have anchor only links if you want to jump to a specific part of the same page you're currently editing - just leave the Link-Field empty and fill the Anchor-Field.</p>
+<summary><b>Can I create anchor-only links?</b></summary>
+<p>If you want to jump to a specific part of the page you're currently editing, you can create anchor-only links by leaving the Link field empty and filling in the Anchor field.</p>
 </details>
 
 <details>
 <summary><b>Can I customize the result list page title?</b></summary>
-<p>Yes, you can use the option <code>title</code> to build a title that fit your needs by using <a href="https://getkirby.com/docs/guide/blueprints/query-language">Kirby Query Language</a>.</p>
-<p>Within a query you have access to a <code>page</code>, <code>site</code> and <code>kirby</code> object.</p>
-<p>By setting <code>"title"=> "{{page.title}} [{{page.parent.title}}]"</code> the title will be shown as <code>Mountains [Photography]</code>.</p>
+<p>Yes, you can use the <code>title</code> option to customize the title according to your needs using the <a href="https://getkirby.com/docs/guide/blueprints/query-language">Kirby Query Language</a>.
+<p>Within a query, you have access to <code>page</code>, <code>site</code>, and <code>kirby</code> objects. For example, setting <code>'title' => '{{ page.title }} [{{ page.parent.title }}]'</code> will display the title as 'Mountains [Photography]'.</p>
 </details>
 
 <details>
 <summary><b>Can I show only pages that match some specific criteria?</b></summary>
-<p>For sure! By setting <code>"filter"=> ['status', 'listed']</code> only listed pages are shown. You study the <a href="https://getkirby.com/docs/cookbook/content/filtering">
+<p>Certainly! By setting <code>"filter"=> ['status', 'listed']</code>, only listed pages will be displayed. You can study the <a href="https://getkirby.com/docs/cookbook/content/filtering">
 Filtering compendium</a> to learn more about filtering collections in Kirby.</p>
 </details>
 
