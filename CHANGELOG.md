@@ -1,3 +1,10 @@
+# [3.2.0](https://github.com/gearsdigital/enhanced-toolbar-link-dialog/compare/v3.1.3...v3.2.0) (2023-04-16)
+
+
+### Features
+
+* add options to control anchor and target field visibility ([051855d](https://github.com/gearsdigital/enhanced-toolbar-link-dialog/commit/051855de121acca6d793b7eba3a8f04abbf9341f)), closes [#82](https://github.com/gearsdigital/enhanced-toolbar-link-dialog/issues/82)
+
 ## [3.1.3](https://github.com/gearsdigital/enhanced-toolbar-link-dialog/compare/v3.1.2...v3.1.3) (2023-04-14)
 
 
