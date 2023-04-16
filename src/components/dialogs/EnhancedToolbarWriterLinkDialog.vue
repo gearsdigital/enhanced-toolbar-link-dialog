@@ -41,16 +41,18 @@ export default {
           label: this.$t(
             "gearsdigital.enhanced-toolbar-link-dialog.anchor.title"
           ),
-          type: "text",
+          type: this.$t("gearsdigital.enhanced-toolbar-link-dialog.anchor-field") === "hidden" ? "hidden" : "text",
+          disabled: this.$t("gearsdigital.enhanced-toolbar-link-dialog.anchor-field") === "disabled",
           counter: false,
           before: "#",
           width: "1/2"
         },
         target: {
           label: this.$t("open.newWindow"),
-          type: "toggle",
+          type: this.$t("gearsdigital.enhanced-toolbar-link-dialog.target-field") === "hidden" ? "hidden" : "toggle",
+          disabled: this.$t("gearsdigital.enhanced-toolbar-link-dialog.target-field") === "disabled",
           text: [this.$t("no"), this.$t("yes")],
-          width: "1/2"
+          width: "1/2",
         }
       };
     }

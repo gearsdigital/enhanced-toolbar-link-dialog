@@ -1,11 +1,10 @@
 # Enhanced Toolbar Link Dialog
 
-![Kirby](https://img.shields.io/badge/Kirby-3.6.*-brightgreen.svg)
-![Kirby](https://img.shields.io/badge/Kirby-3.7.*-brightgreen.svg)
+![Kirby](https://img.shields.io/badge/Kirby-%3E=3.6-brightgreen.svg)
 ![Version](https://img.shields.io/github/v/release/gearsdigital/enhanced-toolbar-link-dialog?label=Version&color=4CC61E&logo=github)
 ![E2E](https://github.com/gearsdigital/enhanced-toolbar-link-dialog/workflows/E2E/badge.svg)
 ![Downloads](https://img.shields.io/packagist/dt/gearsdigital/enhanced-toolbar-link-dialog?label=Downloads)
-![PHP 8.0](https://img.shields.io/badge/php-8.*-brightgreen.svg?color=8892BF&logo=php)
+![PHP 8.0](https://img.shields.io/badge/php-8.1-brightgreen.svg?color=8892BF&logo=php)
 
 This plugin extends the default link dialog with a search functionality. This makes it possible, to create links to _existing_ or _external_ pages.
 
@@ -22,6 +21,8 @@ These are all available configuration options and their default values.
 | `sort`         | Sort the result list. Learn how to use [`sortBy`](https://getkirby.com/docs/reference/objects/toolkit/collection/sort-by).        | `array`   | `null`             |
 | `qualified`    | Prefix every link with your current [Site-Url](https://getkirby.com/docs/reference/objects/cms/site/url).                         | `boolean` | `false`            |
 | `translations` | [Override plugin translations](#localization).                                                                                    | `array`   | `[]`               |
+| `target-field` | By setting `hidden`, the field will be hidden. Setting `disabled` will disable the field but keep it visible.                     | `string`  |                    |
+| `anchor-field` | By setting `hidden`, the field will be hidden. Setting `disabled` will disable the field but keep it visible.                     | `string`  |                    |
 
 ### Usage
 
@@ -33,7 +34,9 @@ return [
     "filter" => null,
     "sort" => null,
     "qualified" => false,
-    "translations" => []
+    "translations" => [],
+    "anchor-field" => 'hidden',
+    "target-field" => disabled,
   ]
 ];
 ```
@@ -99,7 +102,6 @@ This is the list of all available translation keys:
 |---------------------------------------------------------------------------|-----------------------------|
 | `gearsdigital.enhanced-toolbar-link-dialog.anchor.title`                  | Anchor                      |
 | `gearsdigital.enhanced-toolbar-link-dialog.field.autosuggest.placeholder` | Enter a URL or search term… |
-
 
 You can override translations by adding this to your site config.
 
