@@ -10,7 +10,7 @@
   },
   "devDependencies": {
     "@vue/component-compiler-utils": "^3.3.0",
-    "cssnano": "^5.1.12",
+    "cssnano": "^6.0.0",
     "cypress": "^10.4.0",
     "eslint": "^8.21.0",
     "eslint-config-prettier": "^8.5.0",
